@@ -18,10 +18,6 @@ esoTalk is a free, open-source forum software package built with PHP and MySQL. 
 
 esoTalk is developed by Toby Zerner in memory of his brother, Simon. 
 
-### Donate
-
-I've put many hundreds of hours and a lot of love into developing and maintaining esoTalk. If you have benefitted from it, why not consider [donating](https://github.com/phpSoftware/esoTalk-2020/)?
-
 ### System Requirements
 
 esoTalk requires **PHP 5.3+** and a modern version of **MySQL**.
