@@ -1,0 +1,28 @@
+/* ANTI AD BLOCKER HINT */
+.disabledcssBG {
+  z-index: 94034;
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
+  opacity: 0.3;
+  cursor: default;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+.disabledcss {
+  /* NEED THIS HIGHT VALUE FOR SOCILA MEDIA SHARE BUTTONS ;-) */
+  overflow: hidden;
+  opacity: 1;
+  z-index: 94035;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: crimson;
+  color: #fff;
+  padding: 10px;
+  font-size: 3vw;
+  text-align: center;
+}
