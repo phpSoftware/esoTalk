@@ -12,7 +12,7 @@ if (!defined("IN_ESOTALK")) exit;
 ?>
 <h1><?php echo T("Fatal Error"); ?></h1>
 
-<h2><?php printf(T("message.fatalError"), "https://github.com/phpSoftware/esoTalk-2020/"); ?></h2>
+<h2><?php printf(T("message.fatalError"), "https://github.com/phpSoftware/esoTalk-v2/"); ?></h2>
 
 <div class='details'>
 	<div class='code'>
