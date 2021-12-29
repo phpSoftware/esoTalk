@@ -543,7 +543,7 @@ public static function updateAvailableNotification($item)
 {
 	return array(
 		"<i class='icon-wrench'></i> ".sprintf(T("A new version of esoTalk (%s) is available."), "<strong>".$item["data"]["version"]."</strong>"),
-		!empty($item["data"]["releaseNotes"]) ? $item["data"]["releaseNotes"] : "https://github.com/phpSoftware/esoTalk-2020/"
+		!empty($item["data"]["releaseNotes"]) ? $item["data"]["releaseNotes"] : "https://github.com/phpSoftware/esoTalk-v2/"
 	);
 }
 
