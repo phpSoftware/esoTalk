@@ -307,7 +307,7 @@ public function init()
 		}
 
 		// vanGato
-		$this->addToMenu("meta", "copyright", "<a href='https://github.com/phpSoftware/esoTalk-2020/' target='_blank'>".T("Powered by")." phpSoftware</a>");
+		$this->addToMenu("meta", "copyright", "<a href='https://github.com/phpSoftware/esoTalk-v2/' target='_blank'>".T("Powered by")." phpSoftware</a>");
 
 		// Set up some default JavaScript files and language definitions.
 		$this->addJSFile("core/js/lib/jquery.js", true);
