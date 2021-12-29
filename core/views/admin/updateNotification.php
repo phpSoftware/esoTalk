@@ -21,7 +21,7 @@ if (version_compare($info["version"], ESOTALK_VERSION, ">")): ?>
 
 <?php else: ?>
 <h3><?php echo T("message.esoTalkUpToDate"); ?></h3>
-<p><?php printf(T("message.esoTalkUpToDateHelp"), "https://github.com/phpSoftware/esoTalk-2020/"); ?></p>
+<p><?php printf(T("message.esoTalkUpToDateHelp"), "https://github.com/phpSoftware/esoTalk-v2/"); ?></p>
 <?php endif; ?>
 
 </div>
