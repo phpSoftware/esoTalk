@@ -6,7 +6,7 @@ if (!defined("IN_ESOTALK")) exit;
 ET::$pluginInfo["News"] = array(
 	"name" => "News",
 	"description" => "Allows add forum news to esotalk.",
-	"version" => "1.0.0",
+	"version" => "2.0.0",
   "author" => "esoTalk Team",
   "authorEmail" => "5557720max@gmail.com",
   "authorURL" => "https://github.com/phpSoftware/esoTalk-2020/",
@@ -65,18 +65,14 @@ class ETPlugin_News extends ETPlugin {
 	{
 		$model = ET::getInstance("newsModel");
 		$news = $model->get();
-		//date_default_timezone_set('Asia/Bangkok');
-		//echo gmdate("l, F jS, Y \- h:i:s A", mktime(7));
 		if($news){			
 			$string = '';
 			foreach($news as $new){
 				if (ET::$session->userId) {
-					//$string.= mktime(gmdate("H")+7,gmdate("i")+0,gmdate("s"),gmdate("m"),gmdate("d"),gmdate("Y")); 
-					$string.='<p><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).' <small>'.date("d.m.Y", $new['startTime']).'</small></p>';
-					//$string.= '<p>'.gmdate("d-m-Y "."H:i", $new['startTime']).'</p>';
+					$string.='<p title=\''.date("d.m.Y", $new['startTime']).'\'><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).'</p>';
 				} 
 				elseif($new['hideFromGuests']==0){
-					$string.='<p><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).' <small>'.date("d.m.Y", $new['startTime']).'</small></p>';
+					$string.='<p title=\''.date("d.m.Y", $new['startTime']).'\'><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).'</p>';
 				}
 
 			}
