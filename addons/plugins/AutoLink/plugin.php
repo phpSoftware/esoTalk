@@ -9,7 +9,7 @@ ET::$pluginInfo["AutoLink"] = array(
     "version" => "1.2.1",
     "author" => "esoTalk Team",
     "authorEmail" => "5557720max@gmail.com",
-    "authorURL" => "https://github.com/phpSoftware/esoTalk-2020/",
+    "authorURL" => "https://github.com/phpSoftware/esoTalk-v2/",
     "license" => "GPLv2"
 );
 
