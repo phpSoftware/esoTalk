@@ -16,8 +16,8 @@ if (!defined("IN_ESOTALK")) exit;
 
 
 
-// vanGato - TODO: SORT STARTPAGE BY channelId
-array_multisort(array_map(function($element) {return $element[2]['channelId'];}, $data["results"]), SORT_ASC, $data["results"]);
+// vanGato - TODO: SORT STARTPAGE BY channelId - ADD if isset()
+array_multisort(array_map(function($element) {if (isset($element[2]['channelId'])) {return $element[2]['channelId'];}else{return '';}}, $data["results"]), SORT_ASC, $data["results"]);
 
 
 
