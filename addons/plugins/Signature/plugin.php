@@ -9,7 +9,7 @@ ET::$pluginInfo["Signature"] = array(
 	"version" => "1.1.5",
     "author" => "esoTalk Team",
     "authorEmail" => "5557720max@gmail.com",
-    "authorURL" => "https://github.com/phpSoftware/esoTalk-2020/",
+    "authorURL" => "https://github.com/phpSoftware/esoTalk-v2/",
 	"license" => "GPLv2",
 	"priority" => "0"
 );
