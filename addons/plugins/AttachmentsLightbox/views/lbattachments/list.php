@@ -57,3 +57,5 @@ if (!defined("IN_ESOTALK")) exit;
         </ul>
     <?php endif;?>
 </div>
+<!-- WTF :-o -->
+<i></
