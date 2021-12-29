@@ -1301,8 +1301,8 @@ public function formatPostForTemplate($post, $conversation)
 
 	$date = smartTime($post["time"], true);
 
-	// Add the date/time to the post info as a permalink.
-	$formatted["info"][] = "<a href='".URL(postURL($post["postId"]))."' class='time' title='"._strftime(T("date.full"), $post["time"])."' data-timestamp='".$post["time"]."'>".(!empty($conversation["searching"]) ? T("Show in context") : $date)."</a>";
+	// Add the date/time to the post info as a permalink - ADD rel='nofollow' - https://github.com/esotalk/esoTalk/pull/443/commits/20b8c8ede0e7ae6cb1d4b94329aaecbf5ae3f7ac
+	$formatted["info"][] = "<a href='".URL(postURL($post["postId"]))."' class='time' rel='nofollow' title='"._strftime(T("date.full"), $post["time"])."' data-timestamp='".$post["time"]."'>".(!empty($conversation["searching"]) ? T("Show in context") : $date)."</a>";
 
 	// If the post isn't deleted, add a lot of stuff!
 	if (!$post["deleteTime"]) {
