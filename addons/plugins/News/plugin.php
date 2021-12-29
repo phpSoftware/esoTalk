@@ -9,7 +9,7 @@ ET::$pluginInfo["News"] = array(
 	"version" => "2.0.0",
   "author" => "esoTalk Team",
   "authorEmail" => "5557720max@gmail.com",
-  "authorURL" => "https://github.com/phpSoftware/esoTalk-2020/",
+  "authorURL" => "https://github.com/phpSoftware/esoTalk-v2/",
 	"license" => "MIT"
 );
 
