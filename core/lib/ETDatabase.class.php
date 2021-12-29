@@ -123,7 +123,8 @@ public function connection()
 		$dsn = "mysql:host=".$this->host.($this->port ? ";port=".$this->port : "").";dbname=".$this->dbName;
 		$this->pdoConnection = @new PDO($dsn, $this->user, $this->password, $this->connectionOptions);
 		// vanGato - https://stackoverflow. com/a/36033983
-		$this->query("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")->result();
+		#$this->query("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));")->result();
+		$this->query("SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));")->result();
 	}
 	return $this->pdoConnection;
 }
