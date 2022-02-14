@@ -101,9 +101,6 @@ public function autoLink( $link = array())
 	// RuTube
 	else if( preg_match( '/rutube\.ru\/video\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="//rutube.ru/play/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
-        // SoundCloud by MadRomas
-    else if ( preg_match('/^(?:www\.)?soundcloud\.com\/([^\/]+)/i',  $link[2], $matches ) )
-        return '<embed src="https://w.soundcloud.com/player/?url='.$link[0].'" height="100"> </embed>';
   }
 
 
