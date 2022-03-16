@@ -46,6 +46,10 @@ To upgrade esoTalk from an older version, simply:
 
 If you are having problems installing esoTalk, view the [Github](https://github.com/phpSoftware/esoTalk-v2/) page.
 
+With debug mode = true the Page AJAX will not work.
+
+All about AntiBot you will find here: https://antibot.cloud/
+
 ### License
 GPL-2.0 License
 
