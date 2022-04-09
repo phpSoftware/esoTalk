@@ -78,6 +78,11 @@ class ETPlugin_AutoLink extends ETPlugin
 		// YouTube.com
 		else if( preg_match( '/(?:www\.)?youtube\.com\/watch\?v=([a-z0-9].*)/i', $link[2].$link[3], $matches ) )
 			return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'" frameborder="0" allowfullscreen></iframe>';
+		
+		// Youtube Shorts
+	        else if( preg_match( '/youtube\.com\/shorts\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
+		      return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'?rel=0&amp;playsinline=1&amp;controls=1&amp;showinfo=0&amp;modestbranding=0" frameborder="0" allowfullscreen></iframe>';
+		
 		else if( preg_match( '/^(?:www\.)?youtu\.be\/([^\/]+)/i', $link[2], $matches ))
 		  return '<iframe width="'.$width.'" height="'.$height.'"  src="https://www.youtube-nocookie.com/embed/'.$matches[1].'?rel=0" frameborder="0" allowfullscreen></iframe>';
 		
