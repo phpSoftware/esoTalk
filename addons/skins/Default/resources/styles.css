@@ -5,28 +5,106 @@ wrapper (header + footer). Interface-specific styles are included in skins/base/
 here if necessary.
 */
 
+.jumpToLast {color:#496b75;}
+
+div.postBody div.postBody-item:not(:first-child) article.ConversationList.Post.Post--by-start-user .postHeader h3:after {
+content: "OP";
+background: #F05D1D;
+border-radius: 4px;
+padding-left: 5px;
+padding-right: 5px;
+font-size: 10px;
+color: #fff;
+margin-left: 14px;
+}
+
+/* THE SPEECH BUBBLE
+------------------------------------------------------------------------------------------------------------------------------- */
+.triangle-border {
+  position:relative;
+  padding:10px;
+  margin: 15px 10px 15px 10px;
+  border:1px solid #0291db;
+  color:#666;
+  font-size:13px;
+  background-color: #e6f4fb;
+ /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+/* Variant : for left positioned triangle
+------------------------------------------ */
+
+.triangle-border.left {
+  margin-left:30px;
+}
+
+/* Variant : for right positioned triangle
+------------------------------------------ */
+
+.triangle-border.right {
+  margin-right:30px;
+}
+
+iframe {width: 75%;height: 340px;}
+video {width: 75%;}
+embed {width: 75%;}
+
+#conversations 
+.conversationList .excerpt iframe {width: 100%;height: 250px;}
+.conversationList .excerpt video {width: 100%;}
+.conversationList .excerpt {color: #606060; font-size:90%;}
+
+
 /* Global */
-body {font-size:14px; font-weight:300; margin:0; overflow-y:scroll; background:#fff; color:#666}
-body, input, textarea, select {font-family:open sans,lucida grande,lucida sans unicode,helvetica,arial,sans-serif}
-input, textarea, select {font-size:100%}
+body {font-size:14px; font-weight:normal; margin:0; overflow-y:scroll; background:#fff; color:#333}
+body, input, textarea, select {font-family: poppins,sans-serif;}
+input, textarea, select {font-size:100%; max-width: 100%;}
 strong {font-weight:600}
 
 
-/* Links */
-a {text-decoration:none}
-a:hover {text-decoration:none; color:#000}
+/* ScrollToTop */
+.scrollToTop{
+width: 36px;
+bottom: 60px;
+font-size: 16px;
+margin-bottom: 0;
+text-align: center;
+cursor: pointer;
+border-radius: 30px;
+padding: 6px 0;
+color: #354059;
+background: #eaeaea;
+opacity: 0.7;
+border: 0;
+font-weight: 900;
+    position:fixed;
+    right:55px;
+    display:none;
+  z-index: 1000;
+}
+.scrollToTop:hover{
+    text-decoration:none;
+background-color: darken(fadein(#eaeaea, 5%), 5%);
+}
 
+/* Links */
+a {text-decoration:none; color: #0066cc }
+a:hover {text-decoration:none; color:#000}
+a:visited {text-decoration:none; color: #0066cc}
 
 /* Inline styles */
 small {font-size:85%}
 
 
 /* Block styles */
-h1 {font-size:150%; font-weight:300}
-h2 {font-size:160%; font-weight:300}
+h1 {font-size:130%; font-weight:400}
+h2 {font-size:150%; font-weight:400}
 h3 {font-size:115%; font-weight:600}
 h4 {font-weight:600}
-p, ul, pre {line-height:1.6em}
+p, ul, pre {line-height:1.5em}
 .bodyHeader h1 {line-height:1.5em}
 
 
@@ -36,27 +114,77 @@ p, ul, pre {line-height:1.6em}
 
 
 /* Conversation list: adjust the typography. */
-.conversationList .title {font-weight:300; font-size:16px}
+.conversationList .title {font-weight:normal; font-size:15px}
 .conversationList .unread .title a {font-weight:600}
-.conversationList .action * {font-weight:300}
+.conversationList .action * {font-weight:normal}
+
+
+
+/* Conversation list column layout. The conversation column is almost 100% width, then the others have
+negative margins so they overlap the padding of the <li>. */
+.conversationList .col-conversation {width:95%; display:inline-block}
+.conversationList .col-star {float:left; width:1em; margin-left:-13em; padding-left:0.5em}
+.conversationList .col-channel {float:left; width:10em; margin-left:-11em; text-align:right}
+.conversationList .col-replies {float:right; margin-right:-16em; width:14em}
+
+.conversationList .col-views {float:right; margin-right:-16em; width:14em; margin-top:1.5em}
+
+.conversationList .col-lastPost {float:right; width:20em; margin-right:-29em; font-size:90%; overflow:hidden; white-space:nowrap}
+.conversationList .col-replies span {font-size:100%; font-weight:300}
+.list .col-replies {color:#666; font-size:90%}
+.list .col-replies i {font-size:14px; color:#666; margin-right:5px}
+
+.conversationList .col-views span {font-size:100%; font-weight:300}
+.list .col-views {color:#666; font-size:90%}
+.list .col-views i {font-size:14px; color:#666; margin-right:5px}
+.conversationList .col-replies a {color:#666;}
+
+
+/* In the TOPIC itself*/
+.conversationViews {color:#666; font-weight:400; margin-bottom:10px}
+
+
+/* NEW. Show author of first post closest to the left border*/
+/* Needs a code addition in file views/conversations/conversation.php */
+/* see file code_addition.php */
+.conversationList .col-firstPost {float: left;
+width: 3em;
+margin-left: -12em;
+font-size: 90%;
+overflow: hidden;
+white-space: nowrap;}
+
+/* Show/hide stars on hover */
+.conversationList .col-star {visibility:visible}
+.conversationList .starred .col-star, .conversationList li:hover .col-star {visibility:visible}
+@media only screen and (max-device-width: 1024px) {
+	.conversationList .col-star {visibility:visible}
+}
+
+
+/* Unread indicators */
+.unreadIndicator {color: #fff;
+background-color: #FD4C4C;
+padding: 1px 6px 1px 6px;
+border-radius: 6px;
+font-size: 12px;
+margin-right: 5px;}
 
 
 /* Channel list */
-.channelList .channel {font-weight:600}
+.channelList .channel {font-weight:500}
 
 
 /* Posts */
-.postHeader h3 {font-size:120%; font-weight:600}
-.postBody h4 {font-weight:300}
+.postHeader h3 {font-size:13px; font-weight:600}
+.postBody h4 {font-weight:400}
 .replyPlaceholder .postHeader h3 {font-weight:300}
-.postBody {line-height:1.75em; font-size:16px}
+.postBody {line-height:1.5em; font-size:14px}
+.postBody img {vertical-align: bottom;max-width: 75%;}
 
 /* All posts have got a little tinier font size */
-.postBody {
-    font-size: 18px !important;
-}
 
-.postBody a {font-weight:600}
+.postBody a {font-weight:400; font-weight: normal;}
 
 
 /* Tabs */
@@ -69,12 +197,15 @@ p, ul, pre {line-height:1.6em}
 .avatar {border-radius:32px}
 .scrubber li.selected > a {font-weight:600}
 
+.form input[type=text], .form input[type=password], .form input[type=number], .form input[type=email], .form select, .form textarea, .form .input {margin:0 3px 3px 0; width:260px; font-size:100%; padding: 3px 10px 3px 10px; color:#333; border-radius:5px; background:#fff; border: 1px solid #777}
+.form input.color {font-size:100%; padding:3px; width:60px}
+
 
 /* Layout */
-#hdr-content, #body-content, #ftr-content {margin:0 auto; min-width:760px; max-width:1100px; padding:0 30px}
+#hdr-content, #body-content, #ftr-content {margin:0 auto; min-width:920px; max-width:1050px; padding:0 30px}
 #body-content, #ftr-content {background-color:#fff}
-#body-content {padding-bottom:20px; padding-top:10px}
-#body {padding-top:60px}
+#body-content {padding-bottom:40px; padding-top:30px}
+#body {padding-top:50px}
 
 
 /* Menus (inline lists) */
@@ -85,8 +216,8 @@ p, ul, pre {line-height:1.6em}
 /* Header */
 #hdr {background:#fff; position:fixed; width:100%; z-index:100; border-bottom:1px solid}
 #hdr-inner {padding-right:580px; white-space:nowrap}
-#hdr h1 {display:inline-block; max-width:100%; font-size:20px; padding:14px 0; margin:0; font-weight:300; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
-#hdr h1 img {display:inline; vertical-align:-5px; margin-right:5px; border:0}
+#hdr h1 {display:inline-block; max-width:62%; font-size:20px; padding:10px 0; margin: 0 -30px 0 0; font-weight:300; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
+#hdr h1 img {display:inline; vertical-align:-8px; margin-right:5px; border:0; width:65%}
 #hdr h1 span {margin-left:10px}
 #backButton {float:left; margin-right:10px; margin-left:-30px; font-size:20px; line-height:20px; margin-top:17px; text-decoration:none}
 
@@ -95,10 +226,6 @@ p, ul, pre {line-height:1.6em}
 #userMenu .item-user {font-weight:600}
 #userMenu .item-user .avatar {vertical-align:middle; margin:-5px 8px -5px 0}
 #userMenu.menu > li {margin-left:18px; text-align:left}
-
-#hdr .button {border-radius:4px; font-size:100%; padding:9px 12px; margin:-7px 0}
-#hdr #notifications {color:#ccc}
-#hdr #notifications.new {color:#fff !important}
 
 
 /* Footer */
@@ -109,7 +236,7 @@ p, ul, pre {line-height:1.6em}
 
 
 /* Text inputs */
-input[type=text], input[type=password], input[type=number], input[type=email], textarea, .input {font-weight:300; background:#fff; border:1px solid; padding:5px; border-radius:3px; vertical-align:-1px; margin:0; -webkit-appearance:none}
+input[type=text], input[type=password], input[type=number], input[type=email], textarea, .input {font-weight:300; background:#fff; border:1px solid; padding:5px; border-radius:50px; vertical-align:-1px; margin:0; -webkit-appearance:none}
 input[type=text]:focus, input[type=password]:focus, textarea:focus, input[type=number]:focus, input[type=email]:focus, .input:focus {outline:0}
 
 
@@ -127,3 +254,129 @@ a.button.big {padding:10px; height:auto; line-height:1em}
 .button.submit:hover {border-color:#000; color:#fff}
 
 .buttonGroup .button {margin-right:-3px}
+
+
+/******************************************/
+/*          Channels are colored          */
+/******************************************/
+
+.channel.channel-1 {
+  background:transparent;
+  border-color: #ed2939 !important;
+  color: #ed2939 !important;
+}
+.tabs li a.channel-1:hover {
+	background:transparent;
+    border-color: #ed2939 !important;
+    color: #ed2939 !important;
+}
+
+.channel.channel-3 {
+	background:transparent;
+  border-color: #8e0 !important;
+  color: #8e0 !important;
+}
+.tabs li a.channel-3:hover {
+	background:transparent;
+    border-color: #8e0 !important;
+    color: #8e0 !important;
+}
+
+.channel.channel-4 {
+	background:transparent;
+  border-color: #B59E8C !important;
+  color: #B59E8C !important;
+}
+.tabs li a.channel-4:hover {
+	background:transparent;
+    border-color: #B59E8C !important;
+    color: #B59E8C !important;
+}
+
+.channel.channel-5 {
+	background:transparent;
+  border-color: #4b93d1 !important;
+  color: #4b93d1 !important;
+}
+.tabs li a.channel-5:hover {
+	background:transparent;
+    border-color: #4b93d1 !important;
+    color: #4b93d1 !important;
+}
+
+.channel.channel-6 {
+	background:transparent;
+  border-color: #9354ca !important;
+  color: #9354ca !important;
+}
+.tabs li a.channel-6:hover {
+	background:transparent;
+    border-color: #9354ca !important;
+    color: #9354ca !important;
+}
+
+.channel.channel-7 {
+	background:transparent;
+  border-color: #ef564f !important;
+  color: #ef564f !important;
+}
+.tabs li a.channel-7:hover {
+	background:transparent;
+    border-color: #ef564f !important;
+    color: #ef564f !important;
+}
+
+.channel.channel-8 {
+	background:transparent;
+  border-color: #FF8C00 !important;
+  color: #FF8C00 !important;
+}
+.tabs li a.channel-8:hover {
+	background:transparent;
+    border-color: #FF8C00 !important;
+    color: #FF8C00 !important;
+}
+
+.channel.channel-9 {
+	background:transparent;
+  border-color: #3A935D !important;
+  color: #3A935D !important;
+}
+.tabs li a.channel-9:hover {
+	background:transparent;
+    border-color: #3A935D !important;
+    color: #3A935D !important;
+}
+
+.channel.channel-10 {
+	background:transparent;
+  border-color: #00a8a8 !important;
+  color: #00a8a8 !important;
+}
+.tabs li a.channel-10:hover {
+	background:transparent;
+    border-color: #00a8a8 !important;
+    color: #00a8a8 !important;
+}
+
+.channel.channel-11 {
+	background:transparent;
+  border-color: #FF1493 !important;
+  color: #FF1493 !important;
+}
+.tabs li a.channel-11:hover {
+	background:transparent;
+    border-color: #FF1493 !important;
+    color: #FF1493 !important;
+}
+
+.channel.channel-12 {
+	background:transparent;
+  border-color: #227093 !important;
+  color: #227093 !important;
+}
+.tabs li a.channel-12:hover {
+	background:transparent;
+    border-color: #227093 !important;
+    color: #227093 !important;
+}

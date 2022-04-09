@@ -56,6 +56,7 @@ $(function() {
 
 <ul id='userMenu' class='menu'>
 <li><a href='<?php echo URL("conversation/start"); ?>' class='link-newConversation'>New conversation</a></li>
+
 <li class='sep'></li>
 <?php echo $data["userMenuItems"]; ?>
 </ul>

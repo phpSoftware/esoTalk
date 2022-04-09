@@ -5,7 +5,7 @@
 if (!defined("IN_ESOTALK")) exit;
 
 /**
- * Displays the settings form for the Default skin.
+ * Displays the settings form for the Dark skin.
  *
  * @package esoTalk
  */
@@ -22,11 +22,6 @@ $form = $data["skinSettingsForm"];
 <li id='primaryColor'>
 <label><?php echo T("Primary color"); ?></label>
 <?php echo $form->input("primaryColor", "text", array("class" => "color")); ?> <a href='#' class='reset'><?php echo T("Reset"); ?></a>
-</li>
-
-<li id='secondaryColor'>
-<label><?php echo T("Secondary color"); ?></label>
-<?php echo $form->input("secondaryColor", "text", array("class" => "color")); ?> <a href='#' class='reset'><?php echo T("Reset"); ?></a>
 </li>
 
 <li class='sep'></li>

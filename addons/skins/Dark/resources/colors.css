@@ -17,7 +17,7 @@
 .scrubber li ul li.selected a,
 a
 {
-	color:#666;
+	color:#c1c1c1;
 }
 
 .tabs.big li.selected a,
@@ -37,7 +37,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, in
 .withArrow.popup:before,
 .scrubber > li.selected
 {
-	border-color:{primary}
+	border-color:#30363d;
 }
 
 
@@ -53,7 +53,7 @@ input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, in
 #hdr h1 span,
 .channel
 {
-	color:#aaa !important;
+	color:#aaa;
 }
 
 
@@ -68,12 +68,18 @@ input[type=text], input[type=password], input[type=number], input[type=email], t
 .tabs.big,
 #adminMenu li.separator
 {
-	border-color:{tertiary}
+	border-color:#30363d;
 }
 .tabs .pathItem.selected a:before
 {
-	border-left-color:{tertiary}
+	border-left-color:#30363d;
 }
+
+.tabs .pathItem.selected a:after
+{
+	border-left-color:#30363d;
+}
+
 .button
 {
 	background-color:{tertiary}
