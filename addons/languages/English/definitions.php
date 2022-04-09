@@ -160,6 +160,9 @@ $definitions["Error"] = "Error";
 $definitions["esoTalk version"] = "version";
 $definitions["Everyone"] = "Everyone";
 
+$definitions["Share"] = "Share";
+$definitions["Share on"] = "Share on";
+
 $definitions["Fatal Error"] = "Something Went Wrong";
 $definitions["Feed"] = "Feed";
 $definitions["Filter by name or group..."] = "Filter by name or group...";
@@ -185,7 +188,7 @@ $definitions["Give this group the 'moderate' permission on all existing channels
 $definitions["Global permissions"] = "Global permissions";
 $definitions["Go to top"] = "Go to top";
 $definitions["Group name"] = "Group name";
-$definitions["group.administrator"] = "Administrator";
+$definitions["group.administrator"] = "Admin";
 $definitions["group.administrator.plural"] = "Administrators";
 $definitions["group.guest"] = "Guest";
 $definitions["group.guest.plural"] = "Guests";
@@ -411,6 +414,7 @@ $definitions["Your current password"] = "Your current password";
 
 
 // Messages.
+$definitions["message.groupsHelp"] = "Create/Delete and manage Groups";
 $definitions["message.404"] = "Oh dear - the page you requested could not be found! Try going back and clicking a different link. Or something else.";
 $definitions["message.accountNotYetApproved"] = "The administrator hasn't yet approved your account. Patience is a virtue!";
 $definitions["message.ajaxDisconnected"] = "Unable to communicate with the server. Wait a few seconds and <a href='javascript:jQuery.ETAjax.resumeAfterDisconnection()'>try again</a>, or <a href='' onclick='window.location.reload();return false'>refresh the page</a>.";
