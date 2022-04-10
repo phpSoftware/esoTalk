@@ -89,6 +89,8 @@ public function autoLink( $link = array())
 	// Dailymotion
 	else if( preg_match( '/^www\.dailymotion\.com\/(?:[a-z]+\/)?video\/([^\/]+)/i', $link[2], $matches ) )
 	  return '<iframe frameborder="0" width="'.$width.'" height="'.$height.'" src="http://www.dailymotion.com/embed/video/'.$matches[1].'"></iframe>';
+	else if( preg_match( '/dai\.ly\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
+	  return '<iframe frameborder="0" width="'.$width.'" height="'.$height.'" src="http://www.dailymotion.com/embed/video/'.$matches[1].'"></iframe>';
 	// ItemFix.com
 	else if( preg_match( '/itemfix\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 	  return '<iframe width="'.$width.'" height="'.$height.'" src="http://www.itemfix.com/e/'.$link[0].'" frameborder="0" allowfullscreen></iframe>';
