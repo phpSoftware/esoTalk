@@ -5,7 +5,7 @@ if (!defined("IN_ESOTALK")) exit;
  // An implementation of the string filter interface for plain text strings
 ET::$pluginInfo["AutoLink"] = array(
     "name" => "AutoLink",
-    "description" => "When you post an URL, AutoLinksLight automatically embeds videos from Youtube, Dailymotion, TwitchTV, RuTube, etc...",
+    "description" => "When you post an URL, AutoLinksLight automatically embeds videos from Youtube, Dailymotion, TwitchTV, RuTube, SoundCloud etc..",
     "version" => "1.2.1",
     "author" => "esoTalk Team",
     "authorEmail" => "5557720max@gmail.com",
@@ -77,21 +77,21 @@ public function autoLink( $link = array())
 	return '<img class="auto-embedded" src="'.$link[1].$link[2].$link[3].'" alt="-image-" title="'.$link[1].$link[2].$link[3].'" />';
 	// youtube
 	if( strcasecmp( 'www.youtube.com/watch', $link[2] ) == 0 && $this->params( $params, $link[3], 'v' ) )
-	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$params['v'].'" frameborder="0" allowfullscreen></iframe>';
+	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$params['v'].'" frameborder="0" allowfullscreen></iframe>'; 
+	 else if( preg_match( '/^(?:www\.)?youtu\.be\/([^\/]+)/i', $link[2], $matches ))
+	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'" frameborder="0" allowfullscreen></iframe>';
 	// Youtube Shorts
 	else if( preg_match( '/youtube\.com\/shorts\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
-		return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'?rel=0&amp;playsinline=1&amp;controls=1&amp;showinfo=0&amp;modestbranding=0" frameborder="0" allowfullscreen></iframe>'; 
-	  else if( preg_match( '/^(?:www\.)?youtu\.be\/([^\/]+)/i', $link[2], $matches ))
-	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'" frameborder="0" allowfullscreen></iframe>';
+		return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'?rel=0&amp;playsinline=1&amp;controls=1&amp;showinfo=0&amp;modestbranding=0" frameborder="0" allowfullscreen></iframe>';
 	// Vimeo
 	else if( preg_match( '/vimeo\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 	return '<iframe src="//player.vimeo.com/video/'.$matches[1].'?color=ffffff" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 	// Dailymotion
 	else if( preg_match( '/^www\.dailymotion\.com\/(?:[a-z]+\/)?video\/([^\/]+)/i', $link[2], $matches ) )
 	  return '<iframe frameborder="0" width="'.$width.'" height="'.$height.'" src="http://www.dailymotion.com/embed/video/'.$matches[1].'"></iframe>';
-	// LiveLeak.com
-	else if( strcasecmp( 'www.liveleak.com/view', $link[2] ) == 0 && $this->params( $params, $link[3], 'i' ) )
-	  return '<embed class="video" src="http://www.liveleak.com/e/'.$params['i'].'" type="application/x-shockwave-flash" wmode="transparent"  width="'.$width.'" height="'.$height.'" align="top" />';
+	// ItemFix.com
+	else if( preg_match( '/itemfix\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
+	  return '<iframe width="'.$width.'" height="'.$height.'" src="http://www.itemfix.com/e/'.$link[0].'" frameborder="0" allowfullscreen></iframe>';
 	// Twitch TV
 	elseif ( preg_match('/twitch\.tv\/(\w+\s*\/?)*([0-9]+)*$/i',$link[2], $matches))
 		return '<iframe src="http://www.twitch.tv/'.$matches[1].'/embed" frameborder="0" scrolling="no" height="'.$height.'" width="'.$width.'"></iframe>';
