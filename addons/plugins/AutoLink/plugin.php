@@ -97,12 +97,6 @@ public function autoLink( $link = array())
 	// Twitch TV
 	elseif ( preg_match('/twitch\.tv\/(\w+\s*\/?)*([0-9]+)*$/i',$link[2], $matches))
 		return '<iframe src="http://www.twitch.tv/'.$matches[1].'/embed" frameborder="0" scrolling="no" height="'.$height.'" width="'.$width.'"></iframe>';
-	// Vine (format like this : https://vine.co/v/ME70KX9A2X7/)
-	elseif ( preg_match('/vine\.co\/(\w+\s*\/?)*([0-9]+)*$/i',$link[2], $matches))
-		return '<iframe class="vine-embed" src="https://vine.co/v/'.$matches[1].'/embed/simple" width="480" height="480" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>';
-	// Metacafe
-		else if( preg_match( '/^www\.metacafe\.com\/watch\/([0-9]+)\/([^\/]+)\/?$/', $link[2], $matches ) )
-		return '<iframe src="http://www.metacafe.com/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
 	// RuTube
 	else if( preg_match( '/rutube\.ru\/video\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="//rutube.ru/play/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
