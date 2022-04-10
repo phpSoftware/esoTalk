@@ -5,7 +5,7 @@ if (!defined("IN_ESOTALK")) exit;
  // An implementation of the string filter interface for plain text strings
 ET::$pluginInfo["AutoLink"] = array(
     "name" => "AutoLink",
-    "description" => "When you post an URL, AutoLinksLight automatically embeds videos from Youtube, Dailymotion, TwitchTV, RuTube, SoundCloud etc..",
+    "description" => "When you post an URL, AutoLinksLight automatically embeds videos from Youtube, Dailymotion, TwitchTV, RuTube, SoundCloud etc...",
     "version" => "1.2.1",
     "author" => "esoTalk Team",
     "authorEmail" => "5557720max@gmail.com",
@@ -61,25 +61,25 @@ public function autoLink( $link = array())
   
   if( !$forcelink && ( $link[1] == 'http://' || $link[1] == 'https://' ) )
   {
-	$width = 640;
-	$height = 380;
+	$width == '640';
+	$height == '380';
 	// Webm
 	if( strtolower( substr( $link[2], -5 ) ) == '.webm')
-	return '<video width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
+	return '<video data-fancybox="gallery" width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
 	// Mp4
 	if( strtolower( substr( $link[2], -4 ) ) == '.mp4')
-	return '<video width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
+	return '<video data-fancybox="gallery" width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
 	// Mp3
 	else if( strtolower( substr( $link[2], -4 ) ) == '.mp3' )
-	return '<audio controls="controls"><source src="'.$link[0].'"></audio>';
+	return '<audio data-fancybox="gallery" controls="controls"><source src="'.$link[0].'"></audio>';
 	// images
 	elseif( preg_match( '/\.([a-z]{1,5})$/i', $link[2], $matches ) && in_array( strtolower( $matches[1] ), $this->accepted_image_formats ) )
-	return '<img class="auto-embedded" src="'.$link[1].$link[2].$link[3].'" alt="-image-" title="'.$link[1].$link[2].$link[3].'" />';
+	return '<a data-fancybox="gallery" class="auto-embedded" href="'.$link[1].$link[2].$link[3].'"><img src="'.$link[1].$link[2].$link[3].'" alt="-image-" title="Click to enlarge" /></a>';
 	// youtube
 	if( strcasecmp( 'www.youtube.com/watch', $link[2] ) == 0 && $this->params( $params, $link[3], 'v' ) )
-	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$params['v'].'" frameborder="0" allowfullscreen></iframe>'; 
-	 else if( preg_match( '/^(?:www\.)?youtu\.be\/([^\/]+)/i', $link[2], $matches ))
-	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'" frameborder="0" allowfullscreen></iframe>';
+	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$params['v'].'?rel=0&amp;playsinline=1&amp;controls=1&amp;showinfo=0&amp;modestbranding=0" frameborder="0" allowfullscreen></iframe>';
+	else if( preg_match( '/^(?:www\.)?youtu\.be\/([^\/]+)/i', $link[2], $matches ))
+	  return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'?rel=0&amp;playsinline=1&amp;controls=1&amp;showinfo=0&amp;modestbranding=0" frameborder="0" allowfullscreen></iframe>';
 	// Youtube Shorts
 	else if( preg_match( '/youtube\.com\/shorts\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe width="'.$width.'" height="'.$height.'"  src="'.$link[1].'www.youtube.com/embed/'.$matches[1].'?rel=0&amp;playsinline=1&amp;controls=1&amp;showinfo=0&amp;modestbranding=0" frameborder="0" allowfullscreen></iframe>';
@@ -89,22 +89,28 @@ public function autoLink( $link = array())
 	// Dailymotion
 	else if( preg_match( '/^www\.dailymotion\.com\/(?:[a-z]+\/)?video\/([^\/]+)/i', $link[2], $matches ) )
 	  return '<iframe frameborder="0" width="'.$width.'" height="'.$height.'" src="http://www.dailymotion.com/embed/video/'.$matches[1].'"></iframe>';
-	else if( preg_match( '/dai\.ly\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
+    else if( preg_match( '/dai\.ly\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 	  return '<iframe frameborder="0" width="'.$width.'" height="'.$height.'" src="http://www.dailymotion.com/embed/video/'.$matches[1].'"></iframe>';
 	// ItemFix.com
 	else if( preg_match( '/itemfix\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 	  return '<iframe width="'.$width.'" height="'.$height.'" src="http://www.itemfix.com/e/'.$link[0].'" frameborder="0" allowfullscreen></iframe>';
 	// Twitch TV
-	elseif ( preg_match('/twitch\.tv\/(\w+\s*\/?)*([0-9]+)*$/i',$link[2], $matches))
+	else if ( preg_match('/twitch\.tv\/(\w+\s*\/?)*([0-9]+)*$/i',$link[2], $matches))
 		return '<iframe src="http://www.twitch.tv/'.$matches[1].'/embed" frameborder="0" scrolling="no" height="'.$height.'" width="'.$width.'"></iframe>';
 	// RuTube
 	else if( preg_match( '/rutube\.ru\/video\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="//rutube.ru/play/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
+    // SoundCloud by MadRomas
+    else if ( preg_match('/^(?:www\.)?soundcloud\.com\/([^\/]+)/i',  $link[2], $matches ) )
+        return '<embed src="https://w.soundcloud.com/player/?url='.$link[0].'" height="100"> </embed>';
+     // Utreon
+	else if( preg_match( '/utreon\.com\/v\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
+		return '<iframe src="https://utreon.com/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
   }
 
 
-  // default to linkifying
-	return '<a href="'.$link[0].'" rel="nofollow external">'.$link[0].'</a>';
+  // default to linkifying with icon
+	return '<a href="'.$link[0].'" rel="nofollow external" target="_blank" class="link-external">'.$link[2].$link[3].' <i class="icon-external-link"></i></a>';
 
 }
 
@@ -120,9 +126,9 @@ function params( &$params, $string, $required )
   if( !is_array( $required ) ) $required = array( $required );
   if( substr( $string, 0, 1 ) == '?' ) $string = substr( $string, 1 );
   $params = array();
-  $bits = split( '&', $string );
+  $bits = explode( '&', $string );
   foreach( $bits as $bit ) {
-	$pair = split( '=', $bit, 2 );
+	$pair = explode( '=', $bit, 2 );
 	if( in_array( $pair[0], $required ) ) $params[ $pair[0] ] = $pair[1];
   }
   return count( $required ) == count( $params );
