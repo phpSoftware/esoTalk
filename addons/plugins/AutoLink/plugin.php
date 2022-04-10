@@ -6,10 +6,10 @@ if (!defined("IN_ESOTALK")) exit;
 ET::$pluginInfo["AutoLink"] = array(
     "name" => "AutoLink",
     "description" => "When you post an URL, AutoLinksLight automatically embeds videos from Youtube, Dailymotion, TwitchTV, RuTube, SoundCloud etc...",
-    "version" => "1.2.1",
-    "author" => "esoTalk Team",
-    "authorEmail" => "5557720max@gmail.com",
-    "authorURL" => "https://github.com/phpSoftware/esoTalk-v2/",
+    "version" => "2.0",
+    "author" => "MadRomas",
+    "authorEmail" => "madromas@yahoo.com",
+    "authorURL" => "https://madway.net",
     "license" => "GPLv2"
 );
 
@@ -100,12 +100,15 @@ public function autoLink( $link = array())
 	// RuTube
 	else if( preg_match( '/rutube\.ru\/video\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="//rutube.ru/play/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
-    // SoundCloud by MadRomas
+    // SoundCloud
     else if ( preg_match('/^(?:www\.)?soundcloud\.com\/([^\/]+)/i',  $link[2], $matches ) )
         return '<embed src="https://w.soundcloud.com/player/?url='.$link[0].'" height="100"> </embed>';
      // Utreon
 	else if( preg_match( '/utreon\.com\/v\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="https://utreon.com/embed/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
+	// Streamable
+	else if( preg_match( '/streamable\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
+		return '<iframe src="https://streamable.com/e/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
   }
 
 
