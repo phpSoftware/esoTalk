@@ -5,6 +5,8 @@ strikethrough: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[s]
 header: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[h]", "[/h]");},
 link: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[url=http://example.com]", "[/url]", "http://example.com", "Link Text");},
 image: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[img]", "[/img]", "", "http://example.com/image.jpg");},
+map: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[map]", "[/map]", "", "Google embeded map link");},
 fixed: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[code]", "[/code]");},
-textcolor: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[color=darkred]", "[/color]", "darkred", "Color Text");},
+center: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[center]", "[/center]");},
+textcolor: function(id) {ETConversation.wrapText($("#"+id+" textarea"), "[color=red]", "[/color]", "red", "Color Text");},
 };

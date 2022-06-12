@@ -48,7 +48,11 @@ class ETPlugin_BBCode extends ETPlugin {
 
          addToArrayString($controls, "fixed", "<a href='javascript:BBCode.fixed(\"$id\");void(0)' title='".T("Code")."' class='control-fixed'><i class='icon-code'></i></a>", 0);
          addToArrayString($controls, "image", "<a href='javascript:BBCode.image(\"$id\");void(0)' title='".T("Image")."' class='control-img'><i class='icon-picture'></i></a>", 0);
-         addToArrayString($controls, "link", "<a href='javascript:BBCode.link(\"$id\");void(0)' title='".T("Link")."' class='control-link'><i class='icon-link'></i></a>", 0);
+		 // MAP
+		 addToArrayString($controls, "map", "<a href='javascript:BBCode.map(\"$id\");void(0)' title='".T("Map")."' class='control-img'><i class='fas fa-map-marker-alt'></i></a>", 0);
+         
+		 addToArrayString($controls, "link", "<a href='javascript:BBCode.link(\"$id\");void(0)' title='".T("Link")."' class='control-link'><i class='icon-link'></i></a>", 0);
+		 addToArrayString($controls, "center", "<a href='javascript:BBCode.center(\"$id\");void(0)' title='".T("Center")."' class='control-c'><i class='icon-align-center'></i></a>", 0);
          addToArrayString($controls, "strike", "<a href='javascript:BBCode.strikethrough(\"$id\");void(0)' title='".T("Strike")."' class='control-s'><i class='icon-strikethrough'></i></a>", 0);
 
          // vanGato
@@ -116,8 +120,12 @@ class ETPlugin_BBCode extends ETPlugin {
          // \[ (i|b|color|url|somethingelse) \=? ([^]]+)? \] (?: ([^]]*) \[\/\1\] )
  
          // Images: [img]url[/img] - IMAGE PROXY - https://images.weserv.nl/?url=
-         $replacement = $sender->inline ? "[image]" : "<img src='$1' alt='-image-'/>";
+         $replacement = $sender->inline ? "[image]" : "<a data-fancybox='gallery' class='auto-embedded' href='$1'><img src='$1' alt='-image-' border='0' title='Click to enlarge'/></a>";
          $sender->content = preg_replace("/\[img\](https?.*?)\[\/img\]/i", $replacement, $sender->content);
+		 
+		 // Map: [map]url[/map]
+         $replacement = $sender->inline ? "[map]" : "<iframe src='$1' frameborder='0'/></iframe>";
+         $sender->content = preg_replace("/\[map\](https?.*?)\[\/map\]/i", $replacement, $sender->content);
  
          // Links with display text: [url=http://url]text[/url]
          $sender->content = preg_replace_callback("/\[url=(?!\s+)(\w{2,6}:\/\/)?([^\]]*?)\](.*?)\[\/url\]/i", array($this, "linksCallback"), $sender->content);
@@ -134,6 +142,9 @@ class ETPlugin_BBCode extends ETPlugin {
          // Headers: [h]header[/h]
          $replacement = $sender->inline ? "<b>$1</b>" : "</p><h4>$1</h4><p>";
          $sender->content = preg_replace("/\[h\](.*?)\[\/h\]/", $replacement, $sender->content);
+
+         // Centering: [b]centering text[/b]
+	     $sender->content = preg_replace("/\[center\](.*?)\[\/center\]/si", "<center>$1</center>", $sender->content);
 
          // vanGato
          // Font Color: [color=$1]text[/color]
