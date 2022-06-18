@@ -38,7 +38,7 @@ embed {
 #hdr-content {padding:0 5px}
 #hdr-inner {padding:0}
 /*#hdr #forumTitle {font-size:14px; padding:11px 0; text-align:center; display:block; width:160px; margin:0 auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}*/
-  #hdr #forumTitle {font-size:14px; padding: 11px 0 0 10px; text-align:left;   display:inline-flex; width:60%;   margin:0 auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  #hdr #forumTitle {font-size:14px; padding: 7px 0 0 10px; text-align:left;   display:inline-flex; width:60%;   margin:0 auto; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
 #hdr .button {margin:6px 0}
 #hdr .popupWrapper {float:right; margin:0 0 0 7px}
 #hdr #backButton {float:left; margin:13px 5px 0 5px}
@@ -117,7 +117,7 @@ embed {
 .conversationList .avatar {display:none}
 #conversationsFooter {padding:10px; margin:0}
 
-.conversationList li.unread .unreadIndicator {display:block; visibility:visible}
+.conversationList li.unread .unreadIndicator { visibility:visible}
 .conversationList li.unread .col-star .starButton {display:none}
 
 
