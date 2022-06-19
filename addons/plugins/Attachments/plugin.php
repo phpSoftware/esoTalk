@@ -77,18 +77,18 @@ class ETPlugin_Attachments extends ETPlugin {
 
 			// For images, either show them directly or show a thumbnail.
 			if (in_array($extension, array("jpg", "jpeg", "png", "gif"))) {
-				if ($expanded) return "<span class='attachment attachment-image'><img src='".$url."' alt='".$filename."' title='".$filename."'></span>";
-				else return "<a href='".$url."' class='attachment attachment-image' target='_blank'><img src='".URL("attachment/thumb/".$attachment["attachmentId"])."' alt='".$filename."' title='".$filename."'><span class='filename'>".$displayFilename."</span></a>";
+				if ($expanded) return "<a data-fancybox='gallery' href='".$url."'><img src='".$url."' alt='".$filename."' title='Click to enlarge'></a>";
+				else return "<a data-fancybox='gallery' href='".$url."' class='attachment attachment-image' target='_blank'><img src='".URL("attachment/thumb/".$attachment["attachmentId"])."' alt='".$filename."' title='".$filename."'></a>";
 			}
 
 			// Embed video.
 			if (in_array($extension, array("mp4", "mov", "mpg", "avi", "m4v")) and $expanded) {
-				return "<video width='400' height='225' controls><source src='".$url."'></video>";
+				return "<video autoplay muted loop data-fancybox='gallery'  width='350' height='300'><source src='".$url."'></video>";
 			}
 
 			// Embed audio.
 			if (in_array($extension, array("mp3", "mid", "wav")) and $expanded) {
-				return "<audio controls><source src='".$url."'></video>";
+				return "<audio data-fancybox='gallery' controls><source src='".$url."'></video>";
 			}
 
 			$icons = array(
