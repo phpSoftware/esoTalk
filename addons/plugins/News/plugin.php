@@ -38,7 +38,7 @@ class ETPlugin_News extends ETPlugin {
 		$model = ET::getInstance("newsModel");
 		$model->setData(array(
 			//"newId"        => 1,
-			"title"          => "First new",
+			"title"          => "First news",
 			"content"        => "We are open.",
 			"hideFromGuests" => 0,
 			"position"       => 1,
@@ -69,17 +69,16 @@ class ETPlugin_News extends ETPlugin {
 			$string = '';
 			foreach($news as $new){
 				if (ET::$session->userId) {
-					$string.='<p title=\''.date("d.m.Y", $new['startTime']).'\'><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).'</p>';
+					$string.='<span title=\''.date("m.d.Y", $new['startTime']).'\'><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).'</span>';
 				} 
 				elseif($new['hideFromGuests']==0){
-					$string.='<p title=\''.date("d.m.Y", $new['startTime']).'\'><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).'</p>';
+					$string.='<span title=\''.date("m.d.Y", $new['startTime']).'\'><strong>'.addslashes($new['title']).'</strong> '.addslashes($new['content']).'</span>';
 				}
 
 			}
 			
 			if(!empty($string)){
-				ET::$controller->addCSSFile($this->resource("news.css"), true);
-				$js = '<script>$(document).ready(function(){ if ($("div.triangle-border.top").length == 0) { $("<div class=\"triangle-border top\"'.$string.'</div>").insertBefore("form#search");} });</script>';
+				$js = '<script>$(document).ready(function(){ if ($("div.triangle-border.top").length == 0) { $("<div class=\"triangle-border top\">'.$string.'</div>").insertBefore("form#search");} });</script>';
 				$sender->addToHead($js);
 			}			
 		}

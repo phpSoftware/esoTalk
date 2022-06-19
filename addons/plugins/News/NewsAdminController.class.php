@@ -77,7 +77,7 @@ class NewsAdminController extends ETAdminController {
 
 			$model = $this->model();
 			
-			date_default_timezone_set('Asia/Bangkok');
+			date_default_timezone_set('America/New_York');
 			$time = time();
 			$data = array(
 				"title" => $form->getValue("title"),
