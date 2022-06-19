@@ -2,7 +2,7 @@
 
 ## This is an updated version of the esoTalk forum v1.0.0g4 from 17 May 2014
 
-> This PHP software is used by http://adilbo.com
+> This PHP software is used by https://madway.net
 > 
 > Original (but outdated) project is here: https://github.com/esotalk/esoTalk
 
