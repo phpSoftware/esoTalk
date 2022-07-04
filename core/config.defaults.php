@@ -34,8 +34,8 @@ define("ACCOUNT_GUEST", "guest");
 define("ACCOUNT_PENDING", "pending");
 
 // Installed version of esoTalk.
-$config["esoTalk.installed"] = false;
-$config["esoTalk.version"] = "";
+$config["esoTalk.installed"] = true;
+$config["esoTalk.version"] = "1.0.0g5";
 
 // MySQL database details.
 $config["esoTalk.database.host"] = "";
@@ -58,58 +58,58 @@ $config["esoTalk.language"] = "English";
 $config["esoTalk.baseURL"] = "";
 $config["esoTalk.resourceURL"] = ""; // URL used for all resources (CSS+JS+images, including those from plugins and skins.) If blank, the base URL will be used.
 $config["esoTalk.rootAdmin"] = 1; // The member ID of the root administrator.
-$config["esoTalk.emailFrom"] = ""; // The email address to send forum emails (notifications etc.) from.
+$config["esoTalk.emailFrom"] = "noreply@madway.net"; // The email address to send forum emails (notifications etc.) from.
 $config["esoTalk.debug"] = false; // Debug mode will show advanced information in errors. Turn this off in production.
 $config["esoTalk.aggregateCSS"] = true;
 $config["esoTalk.aggregateJS"] = true;
 $config["esoTalk.gzipOutput"] = true; // Whether or not to compress the page output with gzip.
-$config["esoTalk.https"] = false; // Whether or not to force HTTPS.
+$config["esoTalk.https"] = true; // Whether or not to force HTTPS.
 $config["esoTalk.cache"] = false; // What type of cache to use.
 $config["esoTalk.visibleToGuests"] = true;
 
 // Meta information.
-$config["esoTalk.meta.keywords"] = null;
-$config["esoTalk.meta.description"] = null;
+$config["esoTalk.meta.keywords"] = "humor, fun, funny pictures, madway.net, madway, mad, way, funny videos, entertainment, stories, funny stories, dark humor";
+$config["esoTalk.meta.description"] = "If you are normal, you have got to be MAD!";
 
 // Skins and Plugins.
-$config["esoTalk.skin"] = "Default"; // The active skin.
-$config["esoTalk.mobileSkin"] = "Default"; // The active skin for mobile devices.
-$config["esoTalk.adminSkin"] = "Default"; // The active skin for the administrator section.
+$config["esoTalk.skin"] = "Dark"; // The active skin.
+$config["esoTalk.mobileSkin"] = "Dark"; // The active skin for mobile devices.
+$config["esoTalk.adminSkin"] = "Dark"; // The active skin for the administrator section.
 $config["esoTalk.enabledPlugins"] = array("BBCode", "Emoticons"); // A list of enabled plugins.
 
 // Login and registration settings.
 $config["esoTalk.badLoginsPerMinute"] = 10;
-$config["esoTalk.enablePersistenceCookies"] = false;
+$config["esoTalk.enablePersistenceCookies"] = true;
 $config["esoTalk.registration.open"] = true;
 $config["esoTalk.registration.requireConfirmation"] = "email"; // false | "email" = require email confirmation | "approval" = require admin approval
 
 // Cookie settings.
-$config["esoTalk.cookie.name"] = "";
-$config["esoTalk.cookie.domain"] = ""; // Set a custom cookie domain. Set it to .yourdomain.com to have the cookie set across all subdomains.
+$config["esoTalk.cookie.name"] = "madway";
+$config["esoTalk.cookie.domain"] = ".madway.net"; // Set a custom cookie domain. Set it to .yourdomain.com to have the cookie set across all subdomains.
 $config["esoTalk.cookie.path"] = null; // Set a custom cookie path.
 $config["esoTalk.cookie.expire"] = 2592000; // 30 days
 
 // URL settings.
-$config["esoTalk.urls.friendly"] = false; // ex. example.com/index.php/conversation/1
-$config["esoTalk.urls.rewrite"] = false; // ex. example.com/conversation/1 (requires mod_rewrite and a .htaccess file!)
+$config["esoTalk.urls.friendly"] = true; // ex. example.com/index.php/conversation/1
+$config["esoTalk.urls.rewrite"] = true; // ex. example.com/conversation/1 (requires mod_rewrite and a .htaccess file!)
 
 // Some features that can be disabled.
 $config["esoTalk.enableEmailNotifications"] = true;
 $config["esoTalk.notificationCheckInterval"] = 30;
 
 // Search view settings.
-$config["esoTalk.search.limit"] = 50; // Number of conversations to list for a normal search.
-$config["esoTalk.search.limitIncrement"] = 200; // Number of additional results to load when "more results" is clicked.
+$config["esoTalk.search.limit"] = 30; // Number of conversations to list for a normal search.
+$config["esoTalk.search.limitIncrement"] = 30; // Number of additional results to load when "more results" is clicked.
 $config["esoTalk.search.limitMax"] = 9999; // Maximum number of results that can be viewed using the #limit gambit.
 $config["esoTalk.search.updateInterval"] = 60; // Number of seconds at which to automatically update the unread status, post count, and last post information for currently listed conversations in a search.
 $config["esoTalk.search.searchesPerMinute"] = 10; // Users are limited to this many normal searches every minute.
 $config["esoTalk.search.disableRandomGambit"] = false; // The "random" gambit can be very slow/intensive on large forums.
 
 // Conversation view settings.
-$config["esoTalk.conversation.postsPerPage"] = 20; // The maximum number of posts to display on each page of a conversation.
+$config["esoTalk.conversation.postsPerPage"] = 30; // The maximum number of posts to display on each page of a conversation.
 $config["esoTalk.conversation.searchesPerMinute"] = 15; // Users are limited to this many "within conversation" searches every minute.
 $config["esoTalk.conversation.timeBetweenPosts"] = 10; // Posting flood control, in seconds.
-$config["esoTalk.conversation.maxCharsPerPost"] = 10000;
+$config["esoTalk.conversation.maxCharsPerPost"] = 200000;
 $config["esoTalk.conversation.editPostTimeLimit"] = -1; // For how long can a user edit their own posts? -1 = forever | "reply" = until someone replies | x seconds
 
 // Conversation ajax-updating intervals. Set all of these to 0 to disable ajax-updating.
@@ -119,7 +119,7 @@ $config["esoTalk.conversation.updateIntervalMultiplier"] = 1.5; // Each time we 
 $config["esoTalk.conversation.updateIntervalLimit"] = 512; // The maximum number of seconds between checking for new posts.
 
 // Member list settings.
-$config["esoTalk.members.visibleToGuests"] = false;
+$config["esoTalk.members.visibleToGuests"] = true;
 $config["esoTalk.members.membersPerPage"] = 30;
 
 // Post formatting settings.
@@ -128,7 +128,7 @@ $config["esoTalk.format.mentions"] = true; // Allow @mentioning of members?
 
 // Misc. settings.
 $config["esoTalk.defaultRoute"] = "conversations";
-$config["esoTalk.minPasswordLength"] = 8;
+$config["esoTalk.minPasswordLength"] = 6;
 $config["esoTalk.userOnlineExpire"] = 300; // Number of seconds a user's 'last seen time' is before the user 'goes offline'.
 $config["esoTalk.sitemapCacheTime"] = 3600; // Keep sitemaps for at least 1 hour.
 $config["esoTalk.updateCheckInterval"] = 86400; // How often esoTalk should ping to check for a new version. Default = 1 day. Set to 0 to disable update checking.
@@ -137,12 +137,12 @@ $config["esoTalk.updateCheckInterval"] = 86400; // How often esoTalk should ping
 $config["esoTalk.preferences.email.privateAdd"] = true;
 $config["esoTalk.preferences.email.post"] = true;
 $config["esoTalk.preferences.email.mention"] = true;
-$config["esoTalk.preferences.starOnReply"] = false;
-$config["esoTalk.preferences.starPrivate"] = false;
-$config["esoTalk.preferences.hideOnline"] = false;
+$config["esoTalk.preferences.starOnReply"] = true;
+$config["esoTalk.preferences.starPrivate"] = true;
+$config["esoTalk.preferences.hideOnline"] = true;
 
 // Avatar dimensions (in pixels)
 $config["esoTalk.avatars.width"] = 64;
 $config["esoTalk.avatars.height"] = 64;
-$config["esoTalk.avatars.thumbWidth"] = 20;
-$config["esoTalk.avatars.thumbHeight"] = 20;
+$config["esoTalk.avatars.thumbWidth"] = 25;
+$config["esoTalk.avatars.thumbHeight"] = 25;
