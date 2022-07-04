@@ -54,7 +54,18 @@ $(function() {
 
 <div class='area' id='adminNews'>
 <h3><?php echo T("Latest News"); ?></h3>
-<div class='loading'></div>
+
+ <ul class='list'>
+<?php foreach ($data["posts"] as $post): ?>
+<li>
+<h4><a href='<?php echo $post["link"]; ?>' target='_blank'><?php echo $post["title"]; ?></a></h4> <small><?php echo ucfirst(relativeTime($post["ts"])); ?></small>
+<p><?php echo $post["summary"]; ?> <a href='<?php echo $post["link"]; ?>' target='_blank'><?php echo T("Read more"); ?> &raquo;</a></p>
+</li>
+<?php endforeach; ?>
+</ul>
+
+
+
 </div>
 
 </div>

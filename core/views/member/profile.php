@@ -28,7 +28,6 @@ if (empty($member["preferences"]["hideOnline"])):
 	if ($lastAction) echo "<".(!empty($lastAction[1]) ? "a href='{$lastAction[1]}'" : "span")." class='online' title='".T("Online").($lastAction[0] ? " (".sanitizeHTML($lastAction[0]).")" : "")."'><i class='icon-circle'></i></".(!empty($lastAction[1]) ? "a" : "span").">";
 endif;
 ?>
-
 <?php
 // Output the email if the viewer is an admin.
 if (ET::$session->isAdmin()): ?><p class='subText'><?php echo sanitizeHTML($member["email"]); ?></p><?php endif; ?>

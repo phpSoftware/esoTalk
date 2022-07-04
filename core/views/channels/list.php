@@ -43,7 +43,18 @@ else:
 
 <div class='info'>
 <a href='<?php echo URL("conversations/".$channel["slug"]); ?>' class='channel channel-<?php echo $channel["channelId"]; ?>'><?php echo $channel["title"]; ?></a>
-<span class='stats'><?php echo Ts("%s conversation", "%s conversations", $channel["countConversations"]); ?></span>
+<?php if (ET::$session->user): ?>
+<?php
+// Output an "unread indicator", allowing the user to mark the conversation as read.
+if (ET::$session->user and $conversation["unread"])
+	echo " <a href='".URL("conversation/markAsRead/".$conversation["conversationId"]."?token=".ET::$session->token."&return=".urlencode(ET::$controller->selfURL))."' class='unreadIndicator' title='".T("Mark as read")."'>".$conversation["unread"]."</a>";?>
+<?php endif; ?>
+
+<span class='stats'>
+<?php
+ echo Ts("%s conversation", "%s conversations", $channel["countConversations"]); ?>
+
+</span>
 <?php if (!empty($channel["description"])): ?><p class='description'><?php echo $channel["description"]; ?></p><?php endif; ?>
 </div>
 </li>

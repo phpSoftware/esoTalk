@@ -31,6 +31,9 @@ $classes = array("channel-".$conversation["channelId"]);
 if ($conversation["starred"]) $classes[] = "starred";
 if ($conversation["startMemberId"] == ET::$session->userId) $classes[] = "mine";
 ?>
+
+
+
 <div id='conversation' class='hasScrubber <?php echo implode(" ", $classes); ?>'>
 
 <div class='scrubberColumn'>

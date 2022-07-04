@@ -43,15 +43,24 @@ echo "<strong class='title'><a href='".URL($conversationURL.((ET::$session->user
 if (ET::$session->get("highlight"))
 	echo "<span class='controls'><a href='".URL($conversationURL."/?search=".urlencode($data["fulltextString"]))."' class='showMatchingPosts'>".T("Show matching posts")."</a></span>";
 
-// If this conversation is stickied, output an excerpt from its first post.
-if ($conversation["firstPost"])
-	echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->inline(true)->firstLine()->clip(200)->format()->get()."</div>";
 
-?></div>
+
+
+// If this conversation hast a firstPost, output an excerpt from its first post - SEE core/models/ETSearchModel.class.php LINE 480
+if ($conversation["firstPost"])
+	#echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->inline(true)->firstPost()->clip(200)->format()->get()."</div>";
+  echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->inline(true)->clip(500)->format()->get()."</div>";
+
+
+
+
+?>
+</div>
 <div class='col-channel'><?php
 $channel = $data["channelInfo"][$conversation["channelId"]];
 echo "<a href='".URL(searchURL("", $channel["slug"]))."' class='channel channel-{$conversation["channelId"]}' data-channel='{$channel["slug"]}'>{$channel["title"]}</a>";
 ?></div>
+
 <div class='col-lastPost'><?php
 echo "<span class='action'>".avatar(array(
 		"memberId" => $conversation["lastPostMemberId"],

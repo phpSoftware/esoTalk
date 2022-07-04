@@ -19,7 +19,7 @@ $formattedPost = $this->formatPostForTemplate($post, $data["conversation"]);
 
 // If the post before this one is by the same member as this one, hide the avatar.
 if ($prevPost and empty($prevPost["deleteMemberId"]) and $prevPost["memberId"] == $post["memberId"])
-	$formattedPost["hideAvatar"] = true;
+	$formattedPost["hideAvatar"] = false;
 
 $thisPostTime = relativeTime($post["time"]);
 

@@ -18,6 +18,8 @@ $form = $data["form"];
 
 <h3><?php echo T("Log In"); ?></h3>
 
+<?php $this->trigger("RenderOpauth"); ?>
+
 <?php echo $form->open(); ?>
 
 <div class='sheetBody'>
