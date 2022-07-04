@@ -2,7 +2,7 @@
 // Copyright 2011 Toby Zerner, Simon Zerner
 // This file is part of esoTalk. Please see the included license file for usage information.
 
-ET::$languageInfo["English"] = array(
+ET::$languageInfo["English"] = [
 	"locale" => "en-US",
 	"name" => "English",
 	"description" => "A casual English language pack.",
@@ -11,7 +11,7 @@ ET::$languageInfo["English"] = array(
   "authorEmail" => "5557720max@gmail.com",
   "authorURL" => "https://github.com/phpSoftware/esoTalk-v2/",
 	"license" => "GPLv2"
-);
+];
 
 // Define the character set that this language uses.
 $definitions["charset"] = "utf-8";
