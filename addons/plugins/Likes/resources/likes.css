@@ -1,0 +1,14 @@
+.likes {
+	border-top:0px solid #eee;
+	font-size:13px;
+	padding:5px 12px;
+	margin:0px 0 0;
+}
+.link-like {
+color:#03ac66;
+font-weight: 600;
+}
+.link-unlike {
+	color:#ec5050;
+	font-weight: 600;
+}
