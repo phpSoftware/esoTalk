@@ -42,7 +42,7 @@ echo "</span> ";
 echo "<strong class='title'><a href='".URL($conversationURL.((ET::$session->user and $conversation["unread"]) ? "/unread" : ""))."'>".highlight(sanitizeHTML($conversation["title"]), ET::$session->get("highlight"))."</a></strong> ";
 
 // Output the Jump To Last post ">>".
-// echo "<span class='controls'><a href='".URL($conversationURL."/last")."' class='jumpToLast' title='Jump to last'><i class='fas fa-angle-double-right'></i></a></span>";
+ //echo "<span class='controls'><a href='".URL($conversationURL."/last")."' class='jumpToLast' title='Jump to last'><i class='fas fa-angle-double-right'></i></a></span>";
 
 // If we're highlighting search terms (i.e. if we did a fulltext search), then output a "show matching posts" link.
 if (ET::$session->get("highlight"))
@@ -52,8 +52,8 @@ if (ET::$session->get("highlight"))
 // show only first line. Add "format()" to show html. 
 
 // Add or remove "firstPost" from "if ($conversation["firstPost"])" to show or not to show excerpt.
-if ($conversation[""])
-    echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->format()->inline(false)->clip(100)->get()."</div>";
+//if ($conversation[""])
+ //   echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->format()->inline(true)->clip(120)->get()."</div>";
 
 
 ?></div>

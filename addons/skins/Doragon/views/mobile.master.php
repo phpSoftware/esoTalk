@@ -1,9 +1,7 @@
 <?php
 // Copyright 2011 Toby Zerner, Simon Zerner
 // This file is part of esoTalk. Please see the included license file for usage information.
-
 if (!defined("IN_ESOTALK")) exit;
-
 /**
  * Mobile master view. Displays a simplified HTML template with a header and footer.
  *
@@ -15,7 +13,6 @@ if (!defined("IN_ESOTALK")) exit;
 <head>
 <meta charset='<?php echo T("charset", "utf-8"); ?>'>
 <title><?php echo sanitizeHTML($data["pageTitle"]); ?></title>
-<link rel="stylesheet" href="../fancybox/fancybox.css">
 <?php echo $data["head"]; ?>
 <script>
 // Turn off JS effects and fixed positions, and disable tooltips.
@@ -32,21 +29,6 @@ $(function() {
 </head>
 
 <body class='<?php echo $data["bodyClass"]; ?>'>
-<script>
-$(function(){ //on document ready
-    $(document).scroll(function (e) { //bind scroll event
-
-        var intBottomMargin = 60; //Pixels from bottom when script should trigger
-
-        //if less than intBottomMargin px from bottom
-        if ($(window).scrollTop() >= $(document).height() - $(window).height() - intBottomMargin) {
-            $(".viewMore").click(); //trigger click
-        }
-
-    });
-});
-</script>
-<script src="../fancybox/fancybox.js"></script>
 <?php $this->trigger("pageStart"); ?>
 
 <div id='messages'>
@@ -70,12 +52,11 @@ $(function(){ //on document ready
 
 <ul id='userMenu' class='menu'>
 <li><a href='<?php echo URL("conversation/start"); ?>' class='link-newConversation'>New conversation</a></li>
-
 <li class='sep'></li>
 <?php echo $data["userMenuItems"]; ?>
 </ul>
 
-<h1 id='forumTitle'><a href='<?php echo URL(""); ?>'><?php echo $data["forumTitle"]; ?></a></h1>
+<h1 id='forumTitle'><a href='<?php echo URL(""); ?>'><?php echo C("esoTalk.forumTitle"); ?></a></h1>
 
 </div>
 </div>

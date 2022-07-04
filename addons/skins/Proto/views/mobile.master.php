@@ -14,8 +14,7 @@ if (!defined("IN_ESOTALK")) exit;
 <html>
 <head>
 <meta charset='<?php echo T("charset", "utf-8"); ?>'>
-<title><?php echo sanitizeHTML($data["pageTitle"]); ?></title>
-<link rel="stylesheet" href="../fancybox/fancybox.css">
+<title><?php echo $data["pageTitle"]; ?></title>
 <?php echo $data["head"]; ?>
 <script>
 // Turn off JS effects and fixed positions, and disable tooltips.
@@ -24,29 +23,13 @@ ET.disableFixedPositions = true;
 $.fn.tooltip = function() { return this; };
 // Make the user menu into a popup, and take notifications out of the user menu.
 $(function() {
-	$("#forumTitle").before($("#userMenu").popup({alignment: "right", content: "<i class='icon-reorder'></i>"}));
-	$("#forumTitle").before($("#notifications").parent())
-		.css("webkitTransform", "scale(1)"); // force a redraw to fix a webkit layout bug
+	$("#forumTitle").before($("#userMenu").popup({alignment: "right"}));
+	$("#forumTitle").before($("#notifications").parent());
 });
 </script>
 </head>
 
 <body class='<?php echo $data["bodyClass"]; ?>'>
-<script>
-$(function(){ //on document ready
-    $(document).scroll(function (e) { //bind scroll event
-
-        var intBottomMargin = 60; //Pixels from bottom when script should trigger
-
-        //if less than intBottomMargin px from bottom
-        if ($(window).scrollTop() >= $(document).height() - $(window).height() - intBottomMargin) {
-            $(".viewMore").click(); //trigger click
-        }
-
-    });
-});
-</script>
-<script src="../fancybox/fancybox.js"></script>
 <?php $this->trigger("pageStart"); ?>
 
 <div id='messages'>
@@ -62,22 +45,18 @@ $(function(){ //on document ready
 <!-- HEADER -->
 <div id='hdr'>
 <div id='hdr-content'>
-<div id='hdr-inner'>
 
 <?php if ($data["backButton"]): ?>
-<a href='<?php echo $data["backButton"]["url"]; ?>' id='backButton' title='<?php echo T("Back to {$data["backButton"]["type"]}"); ?>'><i class="icon-chevron-left"></i></a>
+<a href='<?php echo $data["backButton"]["url"]; ?>' class='button' id='backButton'>&laquo; Back</a>
 <?php endif; ?>
 
 <ul id='userMenu' class='menu'>
-<li><a href='<?php echo URL("conversation/start"); ?>' class='link-newConversation'>New conversation</a></li>
-
-<li class='sep'></li>
 <?php echo $data["userMenuItems"]; ?>
+<li><a href='<?php echo URL("conversation/start"); ?>' class='link-newConversation'>New conversation</a></li>
 </ul>
 
-<h1 id='forumTitle'><a href='<?php echo URL(""); ?>'><?php echo $data["forumTitle"]; ?></a></h1>
+<h1 id='forumTitle'><a href='<?php echo URL(""); ?>'><?php echo C("esoTalk.forumTitle"); ?></a></h1>
 
-</div>
 </div>
 </div>
 

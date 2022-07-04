@@ -90,10 +90,7 @@ font-weight: 900;
 background-color: darken(fadein(#eaeaea, 5%), 5%);
 }
 
-/* Links */
-a {text-decoration:none; color: #0066cc }
-a:hover {text-decoration:none; color:#000}
-a:visited {text-decoration:none; color: #0066cc}
+
 
 /* Inline styles */
 small {font-size:85%}
@@ -122,7 +119,10 @@ pre {border:0px dashed #ccc;}
 .conversationList .unread .title a {font-weight:600}
 .conversationList .action * {font-weight:normal}
 
-
+/* Links */
+a {text-decoration:none; color: #0066cc }
+a:hover {text-decoration:none; color:#000}
+a:visited {text-decoration:none;#0066cc }
 
 /* Conversation list column layout. The conversation column is almost 100% width, then the others have
 negative margins so they overlap the padding of the <li>. */
@@ -145,7 +145,7 @@ negative margins so they overlap the padding of the <li>. */
 
 
 /* In the TOPIC itself*/
-.conversationViews {color:#666; font-weight:400; margin-bottom:10px}
+.conversationViews {color:#666; font-weight:400; margin-bottom:10px; font-size:13px}
 
 
 /* NEW. Show author of first post closest to the left border*/
@@ -208,7 +208,7 @@ margin-right: 5px;}
 #hdr-content, #body-content, #ftr-content {margin:0 auto; min-width:920px; max-width:1050px; padding:0 30px}
 #body-content, #ftr-content {background-color:#fff}
 #body-content {padding-bottom:40px; padding-top:30px}
-#body {padding-top:50px}
+#body {padding-top:48px}
 
 
 /* Menus (inline lists) */
@@ -217,7 +217,7 @@ margin-right: 5px;}
 
 
 /* Header */
-#hdr {background:#fff; position:fixed; width:100%; z-index:100; border-bottom:1px solid}
+#hdr {background:#fff; position:fixed; width:100%; z-index:100; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);}
 #hdr-inner {padding-right:580px; white-space:nowrap}
 #hdr h1 {display:inline-block; max-width:62%; font-size:20px; padding:10px 0; margin: 0 -30px 0 0; font-weight:300; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
 #hdr h1 img {display:inline; vertical-align:-8px; margin-right:5px; border:0; width:65%}

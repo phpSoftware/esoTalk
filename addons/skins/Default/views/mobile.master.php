@@ -32,6 +32,20 @@ $(function() {
 </head>
 
 <body class='<?php echo $data["bodyClass"]; ?>'>
+<script>
+$(function(){ //on document ready
+    $(document).scroll(function (e) { //bind scroll event
+
+        var intBottomMargin = 60; //Pixels from bottom when script should trigger
+
+        //if less than intBottomMargin px from bottom
+        if ($(window).scrollTop() >= $(document).height() - $(window).height() - intBottomMargin) {
+            $(".viewMore").click(); //trigger click
+        }
+
+    });
+});
+</script>
 <script src="../fancybox/fancybox.js"></script>
 <?php $this->trigger("pageStart"); ?>
 

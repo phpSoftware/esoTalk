@@ -14,7 +14,7 @@ here if necessary.
 #hdr .popupButton:hover {text-decoration:none}
 #hdr #notifications {color: rgba(200, 200, 200, 0.3);}
 
-#hdr .button {border-radius:50px; font-size:100%; padding:8px 10px; margin:-7px 0}
+#hdr .button {border-radius:50px; font-size:100%; padding:8px 11px; margin:-7px 0}
 
 #hdr #notifications.new, #hdr .active .popupButton {background-color:#ff3c3c;}
 #hdr #notifications.new, #hdr .active .popupButton, #hdr .active .popupButton i {color:#fff !important}
@@ -142,7 +142,7 @@ a:hover {text-decoration:none; color:#58a6ff}
 
 .search .icon-search { color:#a6a4a4;}
 
-.message {max-width:700px; background:#364f57; padding:10px 13px; line-height:1.5em; display:inline-block; margin-top:10px; border-radius:3px}
+.message { background:#364f57; padding:10px 13px; line-height:1.5em; display:inline-block; margin-top:10px; border-radius:3px}
 
 /* Generic text styles */
 small, .subText {color:#999}
@@ -266,7 +266,7 @@ negative margins so they overlap the padding of the <li>. */
 
 
 /* In the TOPIC itself*/
-.conversationViews {color:#aaa; font-weight:400; margin-bottom:10px}
+.conversationViews {color:#aaa; font-weight:400; margin-bottom:10px; font-size:13px}
 
 
 /* NEW. Show author of first post closest to the left border*/
@@ -357,10 +357,10 @@ pre {border:0px dashed #ccc;}
 /* Posts */
 .postHeader h3 {font-size:13px; font-weight:600}
 .postBody h4 {font-weight:400}
-.replyPlaceholder .postHeader h3 {font-weight:300}
+.replyPlaceholder .postHeader h3 {font-weight:300; color:#999}
 .postBody {line-height:1.5em; font-size:14px}
 .postBody a {font-weight:400; color:#03a9f4}
-.postBody img {vertical-align: bottom;max-width: 80%;}
+.postBody img {vertical-align: bottom;max-width: 80%; border: 1px solid #484848;}
 
 .button.submit {background-color:#23b636; color:#fff; border:0px; }
 .button.submit:hover {background-color:#2ea041; color:#fff; border:0px;}
@@ -400,7 +400,7 @@ pre {border:0px dashed #ccc;}
 #hdr-content, #body-content, #ftr-content {margin:0 auto; min-width:920px; max-width:1050px; padding:0 30px}
 #body-content, #ftr-content {background-color:#131a20}
 #body-content {padding-bottom:40px; padding-top:30px}
-#body {padding-top:50px}
+#body {padding-top:48px}
 
 
 /* Popups */
@@ -442,7 +442,7 @@ pre {border:0px dashed #ccc;}
 
 
 /* Header */
-#hdr {background:#1b2228; position:fixed; width:100%; z-index:100; border-bottom: 1px solid #282828e6; padding-top: 5px;}
+#hdr {background:#1b2228; position:fixed; width:100%; z-index:100; padding-top: 5px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);}
 #hdr-inner {padding-right:580px; white-space:nowrap}
 #hdr h1 {display:inline-block; max-width:62%; font-size:20px; padding:10px 0; margin: 0 -30px 0 0; font-weight:300; overflow:hidden; white-space:nowrap; text-overflow:ellipsis}
 #hdr h1 img {display:inline; vertical-align:-8px; margin-right:5px; border:0; width:65%}
