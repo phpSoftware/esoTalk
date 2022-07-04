@@ -61,9 +61,8 @@ public function autoLink( $link = array())
   
   if( !$forcelink && ( $link[1] == 'http://' || $link[1] == 'https://' ) )
   {
-	  $height = isset($height) ? $height : '';
-	$width = isset($width) ? $width : '';
-	
+	  $width = isset($width) ? $width : '640';
+	  $height = isset($height) ? $height : '380';
 	// Webm
 	if( strtolower( substr( $link[2], -5 ) ) == '.webm')
 	return '<video width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
@@ -110,7 +109,7 @@ public function autoLink( $link = array())
 	// Streamable
 	else if( preg_match( '/streamable\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="https://streamable.com/e/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
-  
+    // Google Drive videos
   else if( preg_match( '/drive\.google\.com\/file\/d\/([^\/]+)/i', $link[2], $matches ) )
 		return '<iframe src="https://drive.google.com/file/d/'.$matches[1].'/preview" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
   
