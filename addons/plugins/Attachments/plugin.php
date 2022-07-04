@@ -84,7 +84,7 @@ class ETPlugin_Attachments extends ETPlugin {
 
 			// Embed video.
 			if (in_array($extension, array("mp4", "mov", "mpg", "avi", "m4v")) and $expanded) {
-				return "<video autoplay muted loop data-fancybox='gallery'  width='350' height='360'><source src='".$url."'></video>";
+				return "<video autoplay muted loop  width='350' height='360'><source src='".$url."'></video>";
 			}
 
 			// Embed audio.

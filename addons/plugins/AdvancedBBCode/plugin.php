@@ -108,7 +108,6 @@ public function handler_formatPostForTemplate($sender,&$formatted, $post, $conve
 
 public function handler_format_afterFormat($sender)
 {
-    if (!$sender->conversationId) //preview mode
         ET::getInstance("ETAbccController")->Replace($sender->content);
 }
 

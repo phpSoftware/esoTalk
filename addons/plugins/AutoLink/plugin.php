@@ -40,7 +40,7 @@ public function handler_format_format($sender)
 public function autoLink( $link = array())
 {
   // $link[0] = the complete URL
-  // $link[1] = link prefix, lowercase (e.g., 'http://')
+  // $link[1] = link prefix, lowercase (e.g., 'https://')
   // $link[2] = URL up to, but not including, the ?
   // $link[3] = URL params, including initial ?
 
@@ -61,14 +61,15 @@ public function autoLink( $link = array())
   
   if( !$forcelink && ( $link[1] == 'http://' || $link[1] == 'https://' ) )
   {
-	$width == '640';
-	$height == '380';
+	  $height = isset($height) ? $height : '';
+	$width = isset($width) ? $width : '';
+	
 	// Webm
 	if( strtolower( substr( $link[2], -5 ) ) == '.webm')
-	return '<video data-fancybox="gallery" width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
+	return '<video width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
 	// Mp4
 	if( strtolower( substr( $link[2], -4 ) ) == '.mp4')
-	return '<video data-fancybox="gallery" width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
+	return '<video width="'.$width.'" height="'.$height.'" type="video/webm" controls="controls"><source src="'.$link[0].'" ></source></video>';
 	// Mp3
 	else if( strtolower( substr( $link[2], -4 ) ) == '.mp3' )
 	return '<audio data-fancybox="gallery" controls="controls"><source src="'.$link[0].'"></audio>';
@@ -109,11 +110,15 @@ public function autoLink( $link = array())
 	// Streamable
 	else if( preg_match( '/streamable\.com\/(\w+\s*\/?)*([0-9]+)*$/i', $link[2], $matches ) )
 		return '<iframe src="https://streamable.com/e/'.$matches[1].'" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
+  
+  else if( preg_match( '/drive\.google\.com\/file\/d\/([^\/]+)/i', $link[2], $matches ) )
+		return '<iframe src="https://drive.google.com/file/d/'.$matches[1].'/preview" width="'.$width.'" height="'.$height.'" allowFullScreen frameborder=0></iframe>';
+  
   }
 
 
   // default to linkifying with icon
-	return '<a href="'.$link[0].'" rel="nofollow external" target="_blank" class="link-external">'.$link[2].$link[3].' <i class="icon-external-link"></i></a>';
+	return '<a href="'.$link[0].'" rel="nofollow external" target="_blank" class="link-external">'.$link[0].' <i class="icon-external-link"></i></a>';
 
 }
 
