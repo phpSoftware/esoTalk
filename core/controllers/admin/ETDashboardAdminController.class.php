@@ -66,47 +66,9 @@ public function action_index()
  */
 public function action_news()
 {
-	// Check for updates and add the update notification view to the response.
-	ET::upgradeModel()->checkForUpdates();
-	$this->json("updateNotification", $this->getViewContents("admin/updateNotification"));
-
-	// Now fetch the latest posts from the esoTalk blog.
-	// Thanks to Brian for this code.
-	// (http://stackoverflow.com/questions/250679/best-way-to-parse-rss-atom-feeds-with-php/251102#251102)
-	#$xmlSource = file_get_contents("http://eso"."talk.org/blog/feed/");
-  // vanGato - https://github.com/esotalk/esoTalk/issues/467 
-  $xmlSource = file_get_contents("https://www.adi"."lbo.com/forum/esoTalk-feed.php");
-	$x = simplexml_load_string($xmlSource);
-	$posts = array();
-
-	// Go through each item in the RSS channel...
-	foreach ($x->channel->item as $item) {
-
-		$post = array(
-			"date"  => (string)$item->pubDate,
-			"ts"    => strtotime($item->pubDate),
-			"link"  => (string)$item->link,
-			"title" => (string)$item->title,
-			"text"  => (string)$item->description
-		);
-
-		// Create summary as a shortened body and remove all tags.
-		$summary = strip_tags($post["text"]);
-		$maxLen = 200;
-		if(strlen($summary) > $maxLen)
-			$summary = substr($summary, 0, $maxLen)."...";
-
-		$post["summary"] = $summary;
-		$posts[] = $post;
-
-		if (count($posts) >= 3) break;
-
-	}
-
-	// Render the news view.
-	$this->data("posts", $posts);
-	// vanGato - rename this view to info so there is no collision with news plugin
-	$this->render("admin/info");
+	// ***** Hotfix
+	return;
+	// ***** /Hotfix
 }
 
 }

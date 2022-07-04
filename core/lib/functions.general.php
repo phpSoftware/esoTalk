@@ -213,7 +213,7 @@ function minifyJS($js)
 // vanGato
 use PHPMailer\PHPMailer\PHPMailer;
 
-function sendEmail($to, $subject, $body, $url, $debug=false)
+function sendEmail($to, $subject, $body, $debug=false)
 {
 	try {
 

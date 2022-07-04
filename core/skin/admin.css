@@ -13,7 +13,7 @@
 
 
 /* Statistics */
-#adminStatistics {float:left; width:310px}
+#adminStatistics {float:left; width:400px}
 #adminStatistics label {width:220px}
 #adminStatistics div {font-size:14px}
 
@@ -35,12 +35,15 @@
 #adminChannels .channelList div:hover .controls {visibility:visible}
 #adminChannels .channelList li  {padding:0}
 
-#adminChannels .list li {border:solid #e1e1e1; border-width:1px 0 0; padding:6px 0; margin:-1px 0}
+#adminChannels .list li {border: 1px solid #797979;
+padding: 6px 8px;
+margin: 5px 0;
+border-radius: 10px;}
 
 #adminChannels .channelList li > div {padding:6px 0; cursor:move}
-#adminChannels .channelList > li > div {padding:10px 0;}
+#adminChannels .channelList > li > div {padding:10px 20px;}
 #adminChannels .channelList > li > div .channel {font-weight:bold}
-#adminChannels .channelList > li:hover {background-color:#fff}
+#adminChannels .channelList > li:hover {background-color:#1b2228}
 #adminChannels .channelList li.placeholder {background:#eee; border-top:1px solid #ccc}
 
 
@@ -62,7 +65,7 @@
 /* Plugins */
 #pluginList {list-style:none; margin:20px 0 0 0; padding:0}
 #pluginList > li {margin-bottom:10px; padding:10px 12px}
-#pluginList > li.disabled {background:#f1f1f1; color:#aaa; border:0; padding:11px 13px}
+#pluginList > li.disabled {background:#141a20; color:#aaa; border:0; padding:11px 13px}
 #pluginList > li > small {margin-left:7px}
 #pluginList img {opacity:0.5; vertical-align:-3px; margin-right:10px}
 #pluginList > li.enabled img {opacity:1}

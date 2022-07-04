@@ -165,9 +165,9 @@ public function getWithSQL($sql)
  * @return array An array of the member's details.
  */
 public function getById($memberId)
-{
-	return reset($this->get(array("m.memberId" => $memberId)));
-}
+    {
+        return reset($this->get(['m.memberId' => $memberId]));
+    }
 
 
 /**

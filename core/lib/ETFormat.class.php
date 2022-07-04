@@ -64,7 +64,7 @@ public function inline($inline)
  *
  * @return ETFormat
  */
-public function format()
+public function format($sticky = false)
 {
 	// Trigger the "before format" event, which can be used to strip out code blocks.
 	$this->trigger("beforeFormat");
@@ -72,7 +72,12 @@ public function format()
 	// Format links, mentions, and quotes.
 	if (C("esoTalk.format.mentions")) $this->mentions();
 	if (!$this->inline) $this->quotes();
-	$this->links();
+	if(array_search('AutoLink', C("esoTalk.enabledPlugins"))) {
+        if ($sticky) $this->links();
+    }
+    else {
+        $this->links();
+    }
 
 	// Format bullet and numbered lists.
 	if (!$this->inline) $this->lists();
@@ -118,11 +123,14 @@ public function firstLine()
 public function clip($characters)
 {
 	// If the content string is already shorter than this, do nothing.
-	if (strlen($this->content) <= $characters) return $this;
+//if (strlen($this->content) <= $characters) return $this;
+if (mb_strlen($this->content,'UTF-8') <= $characters) return $this;
 
-	// Cut the content down to the last full word that fits in this number of characters.
-	$this->content = substr($this->content, 0, $characters);
-	$this->content = substr($this->content, 0, strrpos($this->content, " "));
+// Cut the content down to the last full word that fits in this number of characters.
+//$this->content = substr($this->content, 0, $characters);
+//$this->content = substr($this->content, 0, strrpos($this->content, " "));
+$this->content = mb_substr($this->content, 0, $characters, 'UTF-8');
+$this->content = mb_substr($this->content, 0, mb_strrpos($this->content, " ", 0, 'UTF-8'), 'UTF-8');
 
 	// Append "...", and close all opened HTML tags.
 	$this->closeTags();
@@ -199,7 +207,7 @@ public function links()
 {
 	// Convert normal links - http://www.example.net, www.example.net - using a callback function.
 	$this->content = preg_replace_callback(
-		"/(?<=\s|^|>|\()(\w+:\/\/)?([\w\-\.]+\.(?:AC|AD|AE|AERO|AF|AG|AI|AL|AM|AN|AO|AQ|AR|ARPA|AS|ASIA|AT|AU|AW|AX|AZ|BA|BB|BD|BE|BF|BG|BH|BI|BIZ|BJ|BM|BN|BO|BR|BS|BT|BV|BW|BY|BZ|CA|CAT|CC|CD|CF|CG|CH|CI|CK|CL|CM|CN|CO|COM|COOP|CR|CU|CV|CW|CX|CY|CZ|DE|DJ|DK|DM|DO|DZ|EC|EDU|EE|EG|ER|ES|ET|EU|FI|FJ|FK|FM|FO|FR|GA|GB|GD|GE|GF|GG|GH|GI|GL|GM|GN|GOV|GP|GQ|GR|GS|GT|GU|GW|GY|HK|HM|HN|HR|HT|HU|ID|IE|IL|IM|IN|INFO|INT|IO|IQ|IR|IS|IT|JE|JM|JO|JOBS|JP|KE|KG|KH|KI|KM|KN|KP|KR|KW|KY|KZ|LA|LB|LC|LI|LK|LR|LS|LT|LU|LV|LY|MA|MC|MD|ME|MG|MH|MIL|MK|ML|MM|MN|MO|MOBI|MP|MQ|MR|MS|MT|MU|MUSEUM|MV|MW|MX|MY|MZ|NA|NAME|NC|NE|NET|NF|NG|NI|NL|NO|NP|NR|NU|NZ|OM|ORG|PA|PE|PF|PG|PH|PK|PL|PM|PN|POST|PR|PRO|PS|PT|PW|PY|QA|RE|RO|RS|RU|RW|SA|SB|SC|SD|SE|SG|SH|SI|SJ|SK|SL|SM|SN|SO|SR|ST|SU|SV|SX|SY|SZ|TC|TD|TEL|TF|TG|TH|TJ|TK|TL|TM|TN|TO|TP|TR|TRAVEL|TT|TV|TW|TZ|UA|UG|UK|US|UY|UZ|VA|VC|VE|VG|VI|VN|VU|WF|WS|XXX|YE|YT|ZA|ZM|ZW)(?:[\.\/#][^\s<]*?)?)(?=\)\s|[\s\.,?!>\)]*(?:\s|>|$))/i",
+		"/(?<=\s|^|>|\()(\w+:\/\/)?((?:\w[\w\-]*\w\.)+(?:[a-z][a-z]+)(?:[\/#][^\s<]*?)?)(?=\)\s|[\s\.,?!>\)]*(?:\s|>|$))/i",
 		array($this, "linksCallback"), $this->content);
 
 	// Convert email links - https://stackoverflow.com/a/15526454

@@ -307,7 +307,7 @@ public function init()
 		}
 
 		// vanGato
-		$this->addToMenu("meta", "copyright", "<a href='https://github.com/phpSoftware/esoTalk-v2/' target='_blank'>".T("Powered by")." phpSoftware</a>");
+		$this->addToMenu("meta", "copyright", "<a href='https://madway.net' title='2021-2022 &copy; MadWay.net'><img class='footer_logo' src='/uploads/logo.png'></a>");
 
 		// Set up some default JavaScript files and language definitions.
 		$this->addJSFile("core/js/lib/jquery.js", true);
@@ -472,7 +472,7 @@ public function render($view = "")
 			$logo = C("esoTalk.forumLogo");
 			$title = C("esoTalk.forumTitle");
 			if ($logo) $size = getimagesize($logo);
-			$data["forumTitle"] = $logo ? "<img src='".getWebPath($logo)."' {$size[3]} alt='$title'/>" : $title;
+			$data["forumTitle"] = $logo ? "<img src='".getWebPath($logo)."' title='$title'/>" : $title;
 
 			// Add the details for the "back" button.
 			$data["backButton"] = ET::$session->getNavigation($this->navigationId);

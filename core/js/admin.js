@@ -11,7 +11,7 @@ init: function() {
 
 	// Load the news posts, and update the update notification area.
 	$.ETAjax({
-		url: "admin/dashboard/news.ajax",
+		url: "",
 		global: false,
 		success: function(data) {
 			$("#adminNews .loading").replaceWith($(data.view).hide().fadeIn());
