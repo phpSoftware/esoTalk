@@ -74,7 +74,7 @@ class ETPlugin_TimeZones extends ETPlugin {
 		return $form->select("timeZone", $options)."<br><small>".T("plugin.TimeZones.timeZone.desc")."</small>";;
 	}
 
-	public function saveTimeZone($form, $key, &$preferences)
+	public static function saveTimeZone($form, $key, &$preferences)
 	{
 		$timeZone = $form->getValue($key);
 		if (!array_key_exists($timeZone, TimeZones::getZones())) $timeZone = null;
