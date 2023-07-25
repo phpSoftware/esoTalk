@@ -1,4 +1,4 @@
-# esoTalk v2
+# esoTalk v3
 
 ## This is an updated version of the esoTalk forum v1.0.0g4 from 17 May 2014
 
@@ -11,8 +11,6 @@
 > Original (but outdated) project is here: https://github.com/esotalk/esoTalk
 
 ## esoTalk – Fat-free forum software
-
-**Help and buy *adilbo*, PHP Software. [adilbo on CodeCanyon &raquo;](https://codecanyon.net/user/adilbo/portfolio?ref=adilbo)**
 
 esoTalk is a free, open-source forum software package built with PHP and MySQL. It is designed to be:
 
