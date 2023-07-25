@@ -24,7 +24,7 @@ esoTalk is developed by Toby Zerner in memory of his brother, Simon.
 
 ### System Requirements
 
-esoTalk requires **PHP 5.3+** and **now also work with 7.4** and a modern version of **MySQL or MariaDB**.
+esoTalk requires **PHP 7.2+** and **now also work with php 8.1** and a modern version of **MySQL or MariaDB**.
 
 The PHP **gd extension** is required to support avatar uploading.
 
