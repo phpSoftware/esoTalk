@@ -502,7 +502,7 @@ public static function fatalError($exception)
 	$backtrace = $exception->getTrace();
 
 	// Use the controller's response type, or just use the default one.
-	$ResponseType = $data->ResponseType;
+	$responseType = (self::$controller and self::$controller->responseType) ? self::$controller->responseType : RESPONSE_TYPE_DEFAULT;
 
 	// Clean the output buffer and send headers if possible.
 	@ob_end_clean();
