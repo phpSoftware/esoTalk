@@ -15,7 +15,7 @@ if (!defined("IN_ESOTALK")) exit;
 define("ESOTALK_VERSION", "1.0.0g5"); // if this is changed 404 error will be shown :-o
 
 // Define response type constants.
-if (!defined("RESPONSE_TYPE_DEFAULT")) define("RESPONSE_TYPE_DEFAULT", "default");
+define("RESPONSE_TYPE_DEFAULT", "default");
 define("RESPONSE_TYPE_VIEW", "view"); // Renders only the controller's view (without the master view)
 define("RESPONSE_TYPE_AJAX", "ajax"); // Renders the controller's json contents and includes the view contents
 define("RESPONSE_TYPE_JSON", "json"); // Renders only the contorller's json contents
