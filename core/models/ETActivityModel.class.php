@@ -98,7 +98,7 @@ public static function addType($type, $projections)
  *		(i.e. it is not stored in the database.)
  * @return bool|int The activity ID, or false if there were errors.
  */
-public function create($type, $member, $fromMember = null, $data = null, $emailData = null)
+public function create($type = null, $member = null, $fromMember = null, $data = null, $emailData = null)
 {
 	// Make sure we have a definition for this type of activity.
 	if (empty(self::$types[$type]))

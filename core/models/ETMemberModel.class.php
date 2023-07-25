@@ -44,7 +44,7 @@ public function __construct()
  * @param array $values An array of fields and their values to insert.
  * @return bool|int The new member ID, or false if there were errors.
  */
-public function create(&$values)
+public function create($values = null)
 {
 	// Trim the username.
 	$values["username"] = trim($values["username"]);

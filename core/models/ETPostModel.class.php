@@ -189,7 +189,7 @@ private function whereSearch(&$sql, $search)
  * @param string $title The title of the conversation (so it can be added alongside the post, for fulltext purposes.)
  * @return bool|int The new post's ID, or false if there were errors.
  */
-public function create($conversationId, $memberId, $content, $title = "")
+public function create($conversationId = null, $memberId = null, $content = null, $title = "")
 {
 	// Validate the post content.
 	$this->validate("content", $content, array($this, "validateContent"));
