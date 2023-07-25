@@ -1,21 +1,29 @@
 $(function() {
 	
+	$(".likes a").tooltip();
+	
+	if (ET.likePaneSlide) {
+		$(document).on("click", ".postHeader", function(e) {
+			if (!$(e.target).parents(".controls").length && !$(e.target).parents(".info").length) $(this).siblings(".postFooter").find(".likes").slideDown("fast");
+		});
+	}
+	
 	$(document).on("click", ".likes .showMore", function(e) {
 		e.preventDefault();
-		ETSheet.loadSheet("onlineSheet", "conversation/liked.view/"+$(this).parents(".post").data("id"));
+		ETSheet.loadSheet("onlineSheet", "conversation/liked.view/"+$(this).parents(".post").data("id")+"/"+$(this).data("type"));
 	});
 
-	$(document).on("click", ".likes .like-button", function(e) {
+	$(document).on("click", ".likes .like-button, .likes .dislike-button, .likes .unlike-button", function(e) {
 		e.preventDefault();
 		var area = $(this).parents(".likes");
-		area.find(".like-button").html(area.hasClass("liked") ? T("<span class='link-like'><i class='far fa-thumbs-up'></i></span>") : T("<span class='link-unlike'><i class='far fa-thumbs-down'></i></span>"));
+		var action = 'like';
+		if ($(this).hasClass("dislike-button")) action = 'dislike';
+		else if ($(this).hasClass("unlike-button")) action = 'unlike';
 		
 		$.ETAjax({
-			url: "conversation/"+(area.hasClass("liked") ? "unlike" : "like")+".json/"+area.parents(".post").data("id"),
+			url: "conversation/"+action+".json/"+area.parents(".post").data("id"),
 			success: function(data) {
-				area.find(".like-members").html(data.names);
-				area.find(".like-separator").toggle(!!data.names);
-				area.toggleClass("liked");
+				if (data.likes) area.before(data.likes).remove();
 			}
 		})
 	});

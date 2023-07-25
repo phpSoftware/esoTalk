@@ -8,10 +8,10 @@ if (!defined("IN_ESOTALK")) exit;
 <div class='sheet' id='onlineSheet'>
 <div class='sheetContent'>
 
-<h3><?php echo T("Members Who Liked This Post"); ?><?php if (count($data["members"])) echo " (".count($data["members"]).")"; ?></h3>
+<h3><?php echo $data["caption"]; ?><?php if (count($data["members"])) echo " (".count($data["members"]).")"; ?></h3>
 
 <?php
-// If there are members online, list them.
+// If there are members, list them.
 if (count($data["members"])): ?>
 
 <div class='section' id='onlineList'>
@@ -29,7 +29,7 @@ if (count($data["members"])): ?>
 </div>
 
 <?php
-// Otherwise, display a 'no members online' message.
+// Otherwise, display a 'no members' message.
 else: ?>
 
 <div class='section'>
