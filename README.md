@@ -28,7 +28,7 @@ esoTalk requires **PHP 7.2+** and **now also work with php 8.1** and a modern ve
 
 The PHP **gd extension** is required to support avatar uploading.
 
-esoTalk has only been tested on **Apache** and **lighttpd**. If you encounter a problem specific to any other web server, please [create an issue](https://github.com/phpSoftware/esoTalk-v2/issues).
+esoTalk has only been tested on **Apache** and **lighttpd**. If you encounter a problem specific to any other web server, please [create an issue](https://github.com/madromas/esoTalk-v2/issues).
 
 ### Installation
 
@@ -48,7 +48,7 @@ To upgrade esoTalk from an older version, simply:
 
 ### Troubleshooting
 
-If you are having problems installing esoTalk, view the [Github](https://github.com/phpSoftware/esoTalk-v2/) page.
+If you are having problems installing esoTalk, view the [Github](https://github.com/madromas/esoTalk-v2) page. Or visit (https://madway.net)
 
 ### License
 GPL-2.0 License
