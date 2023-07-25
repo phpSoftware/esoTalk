@@ -256,7 +256,7 @@ function sendEmail($to, $subject, $body, $url, $debug=false)
     	$ext = pathinfo($logo, PATHINFO_EXTENSION);
     	$mail->AddEmbeddedImage($logo, 'logoimg', 'logo.'.$ext, 'base64', 'image/'.$ext);
 		}
-		$mail->Subject = sanitizeForHTTP('❌ '.$subject); // ⚠️ 🔥 🔔 🚨 📌 📍 ❌
+		$mail->Subject = sanitizeForHTTP('🔔 '.$subject); // ⚠️ 🔥 🔔 🚨 📌 📍 ❌
 		$message = file_get_contents(PATH_SKINS.'/mail.tpl.htm');
 		$active_skin = C("esoTalk.skin");
 		$vars = array(
