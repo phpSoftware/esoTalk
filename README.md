@@ -34,7 +34,7 @@ esoTalk has only been tested on **Apache** and **lighttpd**. If you encounter a 
 
 Installing esoTalk is super easy. In brief, simply:
 
-1. [Download esoTalk.](https://github.com/phpSoftware/esoTalk-v2/)
+1. [Download esoTalk.](https://github.com/madromas/esoTalk-v2)
 2. Extract and upload the files to your PHP-enabled web server.
 3. Visit the location in your web browser and follow the instructions in the installer.
 
@@ -42,7 +42,7 @@ Installing esoTalk is super easy. In brief, simply:
 
 To upgrade esoTalk from an older version, simply:
 
-1. [Download](https://github.com/phpSoftware/esoTalk-v2/) the latest version of esoTalk.
+1. [Download] (https://github.com/madromas/esoTalk-v2) the latest version of esoTalk.
 2. Extract and upload all of the files to your web-server, overwriting old ones. (Be careful that you don't lose custom plugins, skins, and languages you've uploaded to the addons directory, though!)
 3. Visit **your-forum.com/?p=upgrade** in your web browser and watch esoTalk complete the upgrade.
 
