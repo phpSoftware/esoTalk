@@ -464,7 +464,7 @@ pre {border:0px dashed #ccc;}
 
 
 /* Text inputs */
-input[type=text], input[type=password], input[type=number], input[type=email], textarea, .input {font-weight:300; background:#12151a; border:1px solid #30363d; color:#c9d1d9; padding: 3px 10px 3px 10px; border-radius:50px; vertical-align:-1px; margin:0; -webkit-appearance:none}
+input[type=text], input[type=password], input[type=number], input[type=email], textarea, .input {font-weight:300; background:#12151a; border:1px solid #30363d; color:#c9d1d9; padding: 3px 10px 3px 10px; border-radius:20px; vertical-align:-1px; margin:0; -webkit-appearance:none}
 input[type=text]:focus, input[type=password]:focus, textarea:focus, input[type=number]:focus, input[type=email]:focus, .input:focus {outline:0px solid #666;}
 
 
