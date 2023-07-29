@@ -52,8 +52,8 @@ if (ET::$session->get("highlight"))
 // show only first line. Add "format()" to show html. 
 
 // Add or remove "firstPost" from "if ($conversation["firstPost"])" to show or not to show excerpt.
-//if ($conversation[""])
- //   echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->format()->inline(true)->clip(120)->get()."</div>";
+if ($conversation["firstPost"])
+   echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->inline(true)->clip(150)->format()->get()."</div>";
 
 
 ?></div>
