@@ -51,7 +51,7 @@ if (!defined("IN_ESOTALK")) exit;
 <meta name="msapplication-square150x150logo" content="../fav/mstile-150x150.png" />
 <meta name="msapplication-wide310x150logo" content="../fav/mstile-310x150.png" />
 <meta name="msapplication-square310x310logo" content="../fav/mstile-310x310.png" />
-<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
 <link rel="shortcut icon" href="/favicon.png" />
 <link rel="stylesheet" type="text/css" href="/fancybox/fancybox.css">
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&display=swap" rel="stylesheet">
