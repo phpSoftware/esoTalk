@@ -292,7 +292,7 @@ public function install($info)
 	// Create a welcome conversation.
 	ET::conversationModel()->create(array(
 		"title" => "Welcome to ".$info["forumTitle"]."!",
-		"content" => "[b]Welcome to ".$info["forumTitle"]."![/b]\n\n".$info["forumTitle"]." is powered by [url=https://github.com/phpSoftware/esoTalk-v2/]esoTalk[/url], the simple, fast, free web-forum.\n\nFeel free to edit or delete this conversation. Otherwise, it's time to get posting!\n\nAnyway, good luck, and we hope you enjoy using esoTalk.",
+		"content" => "[b]Welcome to ".$info["forumTitle"]."![/b]\n\n".$info["forumTitle"]." is powered by [url=https://github.com/madway/esoTalk-v3/]esoTalk[/url], the simple, fast, free web-forum.\n\nFeel free to edit or delete this conversation. Otherwise, it's time to get posting!\n\nAnyway, good luck, and we hope you enjoy using esoTalk.",
 		"channelId" => 1
 	));
 
