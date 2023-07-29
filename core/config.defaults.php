@@ -34,7 +34,7 @@ define("ACCOUNT_GUEST", "guest");
 define("ACCOUNT_PENDING", "pending");
 
 // Installed version of esoTalk.
-$config["esoTalk.installed"] = true;
+$config["esoTalk.installed"] = false;
 $config["esoTalk.version"] = "1.0.0g5";
 
 // MySQL database details.
