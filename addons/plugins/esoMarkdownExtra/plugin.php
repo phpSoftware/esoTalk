@@ -21,7 +21,7 @@ require_once(PATH_CORE."/lib/ETFormat.class.php");
 
 class MDETFormat extends ETFormat
 {
-	public function format()
+	public function format($sticky = false)
 	{
 		if (C("esoTalk.format.mentions")) $this->mentions();
 		if (!$this->inline) $this->quotes();
