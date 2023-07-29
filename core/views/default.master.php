@@ -60,8 +60,6 @@ if (!defined("IN_ESOTALK")) exit;
 </head>
 <body class='<?php echo $data["bodyClass"]; ?>'>
 
-<script src="/core/js/rainbow.js"></script>
-
 <script>
 //Infinite Scroll
 $(function(){ //on document ready
