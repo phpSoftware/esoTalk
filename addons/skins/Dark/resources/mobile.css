@@ -30,7 +30,9 @@ embed {
 
 .postHeader .info { margin-left:30px;}
 
-.conversationList .col-views {float:right; margin-right:-9.5em; width:14em; margin-top:0em}
+.conversationList .col-replies {float:left; margin-right:0em;}
+
+.conversationList .col-views {float:left; margin-left:-10em; width:14em; margin-top:0em}
 
 .conversationList .excerpt {font-size:100%; padding-top:5px; padding-bottom:5px}
 
@@ -111,7 +113,6 @@ embed {
 .conversationList .col-channel {display:block; padding-right:5px; margin:0; width:auto; text-align:left; float:left;}
 .conversationList .col-lastPost {padding-right:0; font-size:95%; width:auto; margin-right:0; float:none; display: inline-block}
 
-.conversationList .col-replies {float:right; margin-right:0em; width:auto}
 .conversationList .col-replies span {font-size:100%}
 .conversationList .title {font-size:120%}
 .conversationList .avatar {display:none}
