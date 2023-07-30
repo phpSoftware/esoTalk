@@ -10,7 +10,6 @@ if (!defined("IN_ESOTALK")) exit;
  * @package esoTalk
  */
 
-$form = $data["form"];
 ?>
 
 <div id='loginSheet' class='sheet'>
@@ -20,7 +19,7 @@ $form = $data["form"];
 
 <?php $this->trigger("RenderOpauth"); ?>
 
-<?php echo $form->open(); ?>
+<?php $form = $data["form"]; echo $form->open(); ?>
 
 <div class='sheetBody'>
 
