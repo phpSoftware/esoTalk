@@ -44,8 +44,6 @@ class ETPlugin_Reputation extends ETPlugin {
 		//If reputation points is not enabled by Admin, break
 		if(!C("plugin.Reputation.showReputationPublic")) return;
 
-		ET::define("message.reputationConversationStarted", "Way to go! You just earned reputation for starting a conversation!");
-		ET::define("message.reputationReplyToConversation", "Hurray! You just earned reputation for posting a reply! <br> Start an interesting converstion for more.");
 
 		//Add reputation points to the header (top bar)
 		$reputationMenu = "+ ".T(number_format(ET::$session->user["reputationPoints"]). " RP");
@@ -133,8 +131,8 @@ class ETPlugin_Reputation extends ETPlugin {
 		
 		//Give reputation points to member who replied.
 		$points = "reputationPoints + ".C("plugin.Reputation.replyRP");
-		$this->updateReputationPoints($points, $user);
-		ET::$controller->message(T("message.reputationReplyToConversation"), "success autoDismiss");
+		$this->updateReputationPoints($points, $user, $sender, $conversation, $postId, $content);
+		ET::$controller->message(T("Hurray! You just earned reputation for posting a reply! <br> Start an interesting converstion for more."), "success autoDismiss");
 
 		//Give reputation points to conversation starter (Ignore if its the same member) for getting a reply.
 		if(ET::$session->userId!=$conversation["startMemberId"]) 
@@ -155,6 +153,7 @@ class ETPlugin_Reputation extends ETPlugin {
 		$points = "reputationPoints + ".C("plugin.Reputation.conversationStartRP");
 		$user = ET::$session->userId;
 		$this->updateReputationPoints($points, $user);
+		ET::$controller->message(T("Way to go! You just earned reputation for starting a conversation!"), "success autoDismiss");
 		return;
 	}
 
@@ -195,8 +194,7 @@ class ETPlugin_Reputation extends ETPlugin {
 		ET::SQL()
 			->update("member")
 			->set("reputationPoints", $points, false)
-			->where("memberId", $user)
-			->exec();
+			->where("memberId", $user);
 		return;
 	}
 
