@@ -1,14 +1,12 @@
 # esoTalk v3
 
 ## This is an updated version of the esoTalk forum v1.0.0g4 from 17 May 2014
-
-# Demo: http://hub.madway.net
-
 > 
 ![mad](https://user-images.githubusercontent.com/64708726/185802624-3f7f8aec-532c-4966-b58b-5bbbcf1210f7.jpg)
 
 ![mad2](https://user-images.githubusercontent.com/64708726/185802724-af43a611-1d13-4f18-b3e6-743110bc1e5f.jpg)
 
+### Demo: http://hub.madway.net
 
 > Original (but outdated) project is here: https://github.com/esotalk/esoTalk
 
