@@ -523,7 +523,7 @@ a.button.big {padding:10px; height:auto; line-height:1em}
 .postHeader .info > span, .postHeader .info > a {font-size:85%; margin-left:5px; color:#888}
 .postHeader .controls {float:right; margin-top:0px}
 
-.postBody {line-height:1.5em; overflow:auto; padding:15px 15px}
+.postBody {line-height:1.5em; overflow:auto; padding:12px 12px}
 .postBody ul {list-style-type:disc}
 
 .deleted .postHeader {margin:0; padding:6px 5px 6px 12px}
