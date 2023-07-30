@@ -14,7 +14,7 @@ here if necessary.
 #hdr .popupButton:hover {text-decoration:none}
 #hdr #notifications {color: rgba(200, 200, 200, 0.3);}
 
-#hdr .button {border-radius:50px; font-size:100%; padding:8px 11px; margin:-7px 0}
+#hdr .button {border-radius:50px; font-size:100%; padding:6px 10px; margin:-7px 0}
 
 #hdr #notifications.new, #hdr .active .popupButton {background-color:#ff3c3c;}
 #hdr #notifications.new, #hdr .active .popupButton, #hdr .active .popupButton i {color:#fff !important}
