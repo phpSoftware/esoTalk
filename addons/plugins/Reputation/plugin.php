@@ -194,7 +194,8 @@ class ETPlugin_Reputation extends ETPlugin {
 		ET::SQL()
 			->update("member")
 			->set("reputationPoints", $points, false)
-			->where("memberId", $user);
+			->where("memberId", $user)
+			->exec();
 		return;
 	}
 
