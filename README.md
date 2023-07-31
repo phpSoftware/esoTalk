@@ -6,6 +6,7 @@
 
 ![mad2](https://user-images.githubusercontent.com/64708726/185802724-af43a611-1d13-4f18-b3e6-743110bc1e5f.jpg)
 
+![admin](https://github.com/madromas/esoTalk-v3/assets/64708726/de61db61-4029-4cbf-ace8-f61e3ea54d4f)
 
 #### Demo: http://hub.madway.net
 
