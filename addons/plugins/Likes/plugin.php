@@ -202,10 +202,10 @@ public function getLikesPane(&$post, &$conversation = false)
 		($canLike ?
 		($liked || $disliked ? "
 		<a href='#' class='unlike-button' title='$unlikeText'><i class='icon-reply'></i></a>" : "
-		<a href='#' class='like-button' title='$likeText'><i class='fa-regular fa-thumbs-up'></i></a>".
+		<a href='#' class='like-button' title='$likeText'><i class='far fa-thumbs-up'></i></a>".
 		($canDislike ?
 		"<span class='like-separator'>&nbsp;&nbsp;&nbsp;</span>
-		<a href='#' class='dislike-button' title='$dislikeText'><i class='fa-regular fa-thumbs-down'></i></a>"
+		<a href='#' class='dislike-button' title='$dislikeText'><i class='far fa-thumbs-down'></i></a>"
 		: "")
 		) . $separator
 		: "");
