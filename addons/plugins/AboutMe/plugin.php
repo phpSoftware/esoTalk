@@ -145,10 +145,10 @@ class ETPlugin_AboutMe extends ETPlugin {
 	
 	public static function fieldURL($form)
 	{
-		return $form->input("about_url", "url");
+		return $form->input("about_url", "text");
 	}
 	
-	public function saveDatePreference($form, $key, &$preferences)
+	public static function saveDatePreference($form, $key, &$preferences)
 	{
 		$val = $form->getValue($key);
 		$valid = false;
