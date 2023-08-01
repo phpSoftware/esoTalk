@@ -249,7 +249,7 @@ p, ul, pre {line-height:1.5em}
 negative margins so they overlap the padding of the <li>. */
 .conversationList .col-conversation {width:95%; display:inline-block}
 .conversationList .col-star {float:left; width:1em; margin-left:-13em; padding-left:0.5em}
-.conversationList .col-channel {float:left; width:10em; margin-left:-11em; text-align:right}
+.conversationList .col-channel {float:left; width:10em; margin-left:-10em; text-align:right}
 .conversationList .col-replies {float:right; margin-right:-16em; width:14em}
 
 .conversationList .col-views {float:right; margin-right:-16em; width:14em; margin-top:1.5em}
@@ -274,7 +274,7 @@ negative margins so they overlap the padding of the <li>. */
 /* see file code_addition.php */
 .conversationList .col-firstPost {float: left;
 width: 5em;
-margin-left: -13em;
+margin-left: -12em;
 font-size: 90%;
 overflow: hidden;
 white-space: nowrap;}
