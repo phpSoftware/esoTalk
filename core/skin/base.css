@@ -1,7 +1,7 @@
 /*
 esoTalk Base Styles
 This stylesheet contains all of the styles that lay out the esoTalk interfaces and make them work. This
-allows skin stylesheets to focus mainly on styling the page wrapper (header, footer) and elements like links
+allows skin sty lesheets to focus mainly on styling the page wrapper (header, footer) and elements like links
 and buttons. Then they can style anything else if need be. Easy!
 
 z-index order reference:
@@ -108,7 +108,7 @@ span.group-4 {
 	padding-top: 2em;
 	top: 14px;
 	position: absolute !important;
-	margin-left: -18em;
+	margin-left: -6em;
 	overflow: hidden;
 	
 }
