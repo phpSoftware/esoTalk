@@ -120,7 +120,7 @@ class ETPlugin_shit extends ETPlugin
 
         addToArrayString($gambits["main"], T("gambit.shit"), array(
             "gambit-shit",
-            $this->icon_shit
+            $this::$icon_shit
         ));
     }
 

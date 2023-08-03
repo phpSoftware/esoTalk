@@ -36,4 +36,3 @@ class ReputationController extends ETController {
 	}
 
 }
-

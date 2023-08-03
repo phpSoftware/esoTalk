@@ -131,7 +131,7 @@ class ETPlugin_Reputation extends ETPlugin {
 		
 		//Give reputation points to member who replied.
 		$points = "reputationPoints + ".C("plugin.Reputation.replyRP");
-		$this->updateReputationPoints($points, $user, $sender, $conversation, $postId, $content);
+		$this->updateReputationPoints($points, $user);
 		ET::$controller->message(T("Hurray! You just earned reputation for posting a reply! <br> Start an interesting converstion for more."), "success autoDismiss");
 
 		//Give reputation points to conversation starter (Ignore if its the same member) for getting a reply.
