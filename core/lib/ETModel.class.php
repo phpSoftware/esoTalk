@@ -22,13 +22,6 @@ protected $errors = array();
 
 
 /**
- * The database table which the model is associated with.
- * @var string
- */
-protected $table;
-
-
-/**
  * The name of the column that is the primary key of the table.
  * @var string
  */
@@ -44,9 +37,8 @@ protected $primaryKey;
  * 		be used if this is not provided.
  * @return void
  */
-public function __construct($table = "", $primaryKey = "")
+public function __construct(protected $table = "", $primaryKey = "")
 {
-	$this->table = $table;
 	$this->primaryKey = $primaryKey ? $primaryKey : $table."Id";
 }
 
@@ -180,7 +172,8 @@ public function get($wheres = array())
  */
 public function getById($id)
 {
-	return reset($this->get(array($this->primaryKey => $id)));
+	$get = $this->get(array($this->primaryKey => $id));
+	return reset($get);
 }
 
 

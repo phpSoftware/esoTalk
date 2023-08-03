@@ -37,7 +37,7 @@ public $inline = false;
 public function init($content, $sanitize = true)
 {
 	// Clean up newline characters - make sure the only ones we are using are \n!
-	$content = strtr($content, array("\r\n" => "\n", "\r" => "\n")) . "\n";
+	$content = strtr((string)$content, array("\r\n" => "\n", "\r" => "\n")) . "\n";
 
 	// Set the content, and sanitize if necessary.
 	$this->content = $sanitize ? sanitizeHTML($content) : $content;
