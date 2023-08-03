@@ -33,7 +33,7 @@ public function action_index($orderBy = false, $start = 0)
 	if ($searchString = R("search")) {
 
 		// Explode separate terms by the plus character.
-		$terms = explode("+", $searchString);
+		$terms = explode("+", (string) $searchString);
 
 		// Get an array of all groups which we can possibly filter by.
 		$groups = ET::groupModel()->getAll();
@@ -57,8 +57,8 @@ public function action_index($orderBy = false, $start = 0)
 			$group = false;
 			foreach ($groups as $id => $g) {
 				$name = $g["name"];
-					if (strpos(mb_strtolower(T("group.$name", $name), "UTF-8"), $term) === 0
-					or strpos(mb_strtolower(T("group.$name.plural", $name), "UTF-8"), $term) === 0) {
+					if (str_starts_with(mb_strtolower(T("group.$name", $name), "UTF-8"), $term)
+					or str_starts_with(mb_strtolower(T("group.$name.plural", $name), "UTF-8"), $term)) {
 					$group = $id;
 					break;
 				}
@@ -103,14 +103,17 @@ public function action_index($orderBy = false, $start = 0)
 	);
 
 	// If an invalid orderBy key was provided, just use the first one.
-	if (!isset($orders[$orderBy])) $orderBy = reset(array_keys($orders));
+	if (!isset($orders[$orderBy])) {
+		$arrayKeys = array_keys($orders);
+		$orderBy = reset($arrayKeys);
+	}
 
 	// Work out where to start the results from.
 	$page = 0;
 	if ($start) {
 
 		// If we're ordering by name and the start argument is a single letter...
-		if ($orderBy == "name" and strlen($start) == 1 and ctype_alpha($start)) {
+		if ($orderBy == "name" and strlen((string) $start) == 1 and ctype_alpha($start)) {
 
 			// Run a query to get the position of the first member starting with this letter.
 			$start = ET::SQL()
@@ -211,8 +214,7 @@ public function action_index($orderBy = false, $start = 0)
 			foreach ($items as $gambit => $classes) {
 				$gambitsMenu->add($classes[0], "<a href='".URL($linkPrefix.urlencode($gambit))."' class='{$classes[0]}' data-gambit='$gambit'>".(!empty($classes[1]) ? "<i class='{$classes[1]}'></i> " : "")."$gambit</a>");
 			}
-			end($gambits);
-			if ($section !== key($gambits)) $gambitsMenu->separator();
+			if ($section !== array_key_last($gambits)) $gambitsMenu->separator();
 		}
 
 		$this->data("gambitsMenu", $gambitsMenu);

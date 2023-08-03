@@ -23,7 +23,7 @@ public function action_index($channelSlug = false)
 {
 	if (!$this->allowed()) return;
 	
-	list($channelInfo, $currentChannels, $channelIds, $includeDescendants) = $this->getSelectedChannels($channelSlug);
+	[$channelInfo, $currentChannels, $channelIds, $includeDescendants] = $this->getSelectedChannels($channelSlug);
 
 	// Now we need to construct some arrays to determine which channel "tabs" to show in the view.
 	// $channels is a list of channels with the same parent as the current selected channel(s).
@@ -36,7 +36,7 @@ public function action_index($channelSlug = false)
 	$curChannel = false;
 
 	// If channels have been selected, use the first of them.
-	if (count($currentChannels)) $curChannel = $channelInfo[$currentChannels[0]];
+	if (is_countable($currentChannels) ? count($currentChannels) : 0) $curChannel = $channelInfo[$currentChannels[0]];
 
 	// If the currently selected channel has no children, or if we're not including descendants, use
 	// its parent as the parent channel.
@@ -65,7 +65,7 @@ public function action_index($channelSlug = false)
 
 	// Last, but definitely not least... perform the search!
 	$search = ET::searchModel();
-	$conversationIDs = $search->getConversationIDs($channelIds, $searchString, count($currentChannels) or !ET::$session->userId);
+	$conversationIDs = $search->getConversationIDs($channelIds, $searchString, is_countable($currentChannels) ? count($currentChannels) : 0 or !ET::$session->userId);
 
 	// If this page was originally accessed at conversations/markAsRead/all?search=whatever (the
 	// markAsRead method simply calls the index method), then mark the results as read.
@@ -171,8 +171,7 @@ public function action_index($channelSlug = false)
 			foreach ($items as $gambit => $classes) {
 				$gambitsMenu->add($classes[0], "<a href='".URL($linkPrefix.urlencode("#".$gambit))."' class='{$classes[0]}' data-gambit='$gambit'>".(!empty($classes[1]) ? "<i class='{$classes[1]}'></i> " : "")."$gambit</a>");
 			}
-			end($gambits);
-			if ($section !== key($gambits)) $gambitsMenu->separator();
+			if ($section !== array_key_last($gambits)) $gambitsMenu->separator();
 		}
 
 		$this->data("controlsMenu", $controls);
@@ -186,7 +185,8 @@ public function action_index($channelSlug = false)
 
 		// Add meta tags to the header.
 		$this->addToHead("<meta name='keywords' content='".sanitizeHTML(($k = C("esoTalk.meta.keywords")) ? $k : implode(",", $keywords))."'>");
-		$lastKeyword = reset(array_splice($keywords, count($keywords) - 1, 1));
+		$arraySplice = array_splice($keywords, count($keywords) - 1, 1);
+		$lastKeyword = reset($arraySplice);
 		$this->addToHead("<meta name='description' content='".sanitizeHTML(($d = C("esoTalk.meta.description")) ? $d
 			: sprintf(T("forumDescription"), C("esoTalk.forumTitle"), implode(", ", $keywords), $lastKeyword))."'>");
 
@@ -367,11 +367,11 @@ public function action_update($channelSlug = "", $query = "")
 	// This must be done as an AJAX request.
 	$this->responseType = RESPONSE_TYPE_AJAX;
 
-	list($channelInfo, $currentChannels, $channelIds, $includeDescendants) = $this->getSelectedChannels($channelSlug);
+	[$channelInfo, $currentChannels, $channelIds, $includeDescendants] = $this->getSelectedChannels($channelSlug);
 	$search = ET::searchModel();
 
 	// Work out which conversations we need to get updated details for (according to the input value.)
-	$conversationIds = explode(",", R("conversationIds"));
+	$conversationIds = explode(",", (string) R("conversationIds"));
 
 	// Make sure they are all integers.
 	foreach ($conversationIds as $k => $v) {
@@ -396,7 +396,7 @@ public function action_update($channelSlug = "", $query = "")
 		// TODO: set a #limit gambit for 20 results, because we only check for differences in the first 20
 
 		// Get a list of conversation IDs for the channel/query.
-		$newConversationIds = $search->getConversationIDs($channelIds, $query, count($currentChannels) or !ET::$session->userId);
+		$newConversationIds = $search->getConversationIDs($channelIds, $query, is_countable($currentChannels) ? count($currentChannels) : 0 or !ET::$session->userId);
 		$newConversationIds = array_slice((array)$newConversationIds, 0, 20);
 
 		// Get the difference of the two sets of conversationId's.
@@ -437,11 +437,11 @@ protected function highlight($terms)
 {
 	$words = array();
 	foreach ($terms as $term) {
-		if (preg_match_all('/"(.+?)"/', $term, $matches)) {
+		if (preg_match_all('/"(.+?)"/', (string) $term, $matches)) {
 			$words[] = $matches[1];
 			$term = preg_replace('/".+?"/', '', $term);
 		}
-		$words = array_unique(array_merge($words, explode(" ", $term)));
+		$words = array_unique(array_merge($words, explode(" ", (string) $term)));
 	}
 	ET::$session->store("highlight", $words);
 }
