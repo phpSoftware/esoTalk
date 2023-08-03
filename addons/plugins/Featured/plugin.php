@@ -120,7 +120,7 @@ class ETPlugin_Featured extends ETPlugin
 
         addToArrayString($gambits["main"], T("gambit.featured"), array(
             "gambit-featured",
-            $this->icon_featured
+            $this::$icon_featured
         ));
     }
 

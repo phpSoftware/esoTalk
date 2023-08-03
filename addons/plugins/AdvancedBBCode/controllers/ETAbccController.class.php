@@ -14,10 +14,12 @@ class ETAbccController extends ETController {
 private $plugin_key_name;
     
 public function GetPluginName()
-{
+{$plugin_key_name=false;
     if (!$plugin_key_name)
         $plugin_key_name = "AdvancedBBCode";
-    return $plugin_key_name;
+    
+	
+	return $plugin_key_name;
 }
 
 private function GetBBClass()

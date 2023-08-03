@@ -17,7 +17,7 @@ class bitfield
 		// Get the ($n / 8)th char
 		$byte = $n >> 3;
 
-		if (strlen($this->data) >= $byte + 1)
+		if (strlen((string) $this->data) >= $byte + 1)
 		{
 			$c = $this->data[$byte];
 
@@ -36,13 +36,13 @@ class bitfield
 		$byte = $n >> 3;
 		$bit = 7 - ($n & 7);
 
-		if (strlen($this->data) >= $byte + 1)
+		if (strlen((string) $this->data) >= $byte + 1)
 		{
 			$this->data[$byte] = $this->data[$byte] | chr(1 << $bit);
 		}
 		else
 		{
-			$this->data .= str_repeat("\0", $byte - strlen($this->data));
+			$this->data .= str_repeat("\0", $byte - strlen((string) $this->data));
 			$this->data .= chr(1 << $bit);
 		}
 	}
@@ -51,7 +51,7 @@ class bitfield
 	{
 		$byte = $n >> 3;
 
-		if (strlen($this->data) >= $byte + 1)
+		if (strlen((string) $this->data) >= $byte + 1)
 		{
 			$bit = 7 - ($n & 7);
 			$this->data[$byte] = $this->data[$byte] &~ chr(1 << $bit);
@@ -71,7 +71,7 @@ class bitfield
 	function get_bin()
 	{
 		$bin = '';
-		$len = strlen($this->data);
+		$len = strlen((string) $this->data);
 
 		for ($i = 0; $i < $len; ++$i)
 		{
@@ -98,7 +98,7 @@ class ETAcp_bbcodes
         public $warning_confirmed = false;
         public $admincontroller;
         public $controller;
-        private $bbcodes = array();   
+        private array $bbcodes = array();   
         private $bbcode_bitfield;
     
 	function main($bbcodedata)
@@ -160,7 +160,7 @@ class ETAcp_bbcodes
 			case 'modify':
 			case 'create':
 
-				$warn_text = preg_match('%<[^>]*\{text[\d]*\}[^>]*>%i', $bbcode_tpl);
+				$warn_text = preg_match('%<[^>]*\{text[\d]*\}[^>]*>%i', (string) $bbcode_tpl);
                             
 				if ($warn_text && !$form->getValue("warning_confirmed"))
 				{
@@ -188,7 +188,7 @@ class ETAcp_bbcodes
                                             $info = $model->getTagExists(strtolower($data['bbcode_tag']));
 
                                             // Grab the end, interrogate the last closing tag
-                                            if ($info['test'] === '1' || in_array(strtolower($data['bbcode_tag']), $hard_coded) || (preg_match('#\[/([^[]*)]$#', $bbcode_match, $regs) && in_array(strtolower($regs[1]), $hard_coded)))
+                                            if ($info['test'] === '1' || in_array(strtolower($data['bbcode_tag']), $hard_coded) || (preg_match('#\[/([^[]*)]$#', (string) $bbcode_match, $regs) && in_array(strtolower($regs[1]), $hard_coded)))
                                             {
                                                 $this->admincontroller->responseType = RESPONSE_TYPE_AJAX;
                                                 $this->admincontroller->json("error", 'AdvancedBBCode.BBCODE_INVALID_TAG_NAME');
@@ -197,7 +197,7 @@ class ETAcp_bbcodes
                                                 break;                                    
                                             }
                                     }                                    
-                                    if (substr($data['bbcode_tag'], -1) === '=')
+                                    if (str_ends_with($data['bbcode_tag'], '='))
                                     {
                                             $test = substr($data['bbcode_tag'], 0, -1);
                                     }
@@ -206,7 +206,7 @@ class ETAcp_bbcodes
                                             $test = $data['bbcode_tag'];
                                     }
 
-                                    if (!preg_match('%\\[' . $test . '[^]]*].*?\\[/' . $test . ']%s', $bbcode_match))
+                                    if (!preg_match('%\\[' . $test . '[^]]*].*?\\[/' . $test . ']%s', (string) $bbcode_match))
                                     {
                                         $this->admincontroller->responseType = RESPONSE_TYPE_AJAX;
                                         $this->admincontroller->json("error", 'AdvancedBBCode.BBCODE_OPEN_ENDED_TAG');
@@ -215,7 +215,7 @@ class ETAcp_bbcodes
                                         break;                                    
                                     }
 
-                                    if (strlen($data['bbcode_tag']) > 16)
+                                    if (strlen((string) $data['bbcode_tag']) > 16)
                                     {
                                         $this->admincontroller->responseType = RESPONSE_TYPE_AJAX;
                                         $this->admincontroller->json("error", 'AdvancedBBCode.BBCODE_TAG_TOO_LONG');
@@ -224,7 +224,7 @@ class ETAcp_bbcodes
                                         break;                                           
                                     }
 
-                                    if (strlen($bbcode_match) > 4000)
+                                    if (strlen((string) $bbcode_match) > 4000)
                                     {
                                         $this->admincontroller->responseType = RESPONSE_TYPE_AJAX;
                                         $this->admincontroller->json("error", 'AdvancedBBCode.BBCODE_TAG_DEF_TOO_LONG');
@@ -233,7 +233,7 @@ class ETAcp_bbcodes
                                         break;                                           
                                     }
 
-                                    if (strlen($bbcode_helpline) > 255)
+                                    if (strlen((string) $bbcode_helpline) > 255)
                                     {
                                         $this->admincontroller->responseType = RESPONSE_TYPE_AJAX;
                                         $this->admincontroller->json("error", 'AdvancedBBCode.BBCODE_HELPLINE_TOO_LONG');
@@ -314,7 +314,7 @@ class ETAcp_bbcodes
 	{
 		$bbcode_match = trim($bbcode_match);
 		$bbcode_tpl = trim($bbcode_tpl);
-		$utf8 = strpos($bbcode_match, 'INTTEXT') !== false;
+		$utf8 = str_contains($bbcode_match, 'INTTEXT');
 
 		// make sure we have utf8 support
 		$utf8_pcre_properties = false;
@@ -374,7 +374,7 @@ class ETAcp_bbcodes
 		$bbcode_tag = preg_replace('/.*?\[([a-z0-9_-]+=?).*/i', '$1', $bbcode_match);
 		$bbcode_search = preg_replace('/.*?\[([a-z0-9_-]+)=?.*/i', '$1', $bbcode_match);
 
-		if (!preg_match('/^[a-zA-Z0-9_-]+=?$/', $bbcode_tag))
+		if (!preg_match('/^[a-zA-Z0-9_-]+=?$/', (string) $bbcode_tag))
 		{
 			return 'BBCODE_INVALID';
 		}
@@ -453,7 +453,7 @@ class ETAcp_bbcodes
 	{
 		// Prepare BBcode (just prepares some tags for better parsing)
                 $this->bbcode_bitfield = '';
-		if (strpos($post["content"], '[') !== false)
+		if (str_contains((string) $post["content"], '['))
 		{
 			$this->bbcode_init();
 			$this->parse_bbcode($post);
@@ -494,7 +494,7 @@ class ETAcp_bbcodes
                         foreach ($bbcode_data['regexp'] as $regexp => $replacement)
                         {                        
                                 $bit_data = $bbcode_data['bbcode_id']-1;
-                                if (preg_match($regexp, $post["content"]))
+                                if (preg_match($regexp, (string) $post["content"]))
                                 {
                                         $bitfield->set($bit_data*2);
                                         $bitfield->clear($bit_data*2+1);
@@ -511,7 +511,7 @@ class ETAcp_bbcodes
         
 	function bbcode_second_pass(&$formatted,$post)
 	{
-            if (strpos($formatted["body"], '[') !== false)
+            if (str_contains((string) $formatted["body"], '['))
             {                    
                 $this->bbcode_bitfield = '';                    
                 if (!$this->bbcodes)
@@ -534,7 +534,7 @@ class ETAcp_bbcodes
                     {
                         foreach ($bbcode_data['regexp'] as $regexp => $replacement)
                         {                        
-                            if (preg_match($regexp, $formatted["body"]))
+                            if (preg_match($regexp, (string) $formatted["body"]))
                             {
                                     $correctedbitfield->set($bit_data*2);
                                     $correctedbitfield->clear($bit_data*2+1);
