@@ -11,7 +11,7 @@ if (!defined("IN_ESOTALK")) exit;
  */
 class ETChannelModel extends ETModel {
 
-const CACHE_KEY = "channels";
+public final const CACHE_KEY = "channels";
 
 
 /**
@@ -70,10 +70,10 @@ public function getAll()
 			foreach ($channels as &$channel) {
 
 				// Expand the channel's attributes.
-				$channel["attributes"] = unserialize($channel["attributes"]);
+				$channel["attributes"] = explode(",", (string) $channel["attributes"]);
 
 				// Expand the group IDs.
-				$groupIds = explode(",", $channel["groupId"]);
+				$groupIds = explode(",", (string) $channel["groupId"]);
 				unset($channel["groupId"]);
 
 				// For each permission type, expand the comma-separated bool values.
@@ -81,7 +81,7 @@ public function getAll()
 				$channel["permissions"] = array();
 				foreach ($permissionColumns as $column) {
 					$channel["permissions"][$column] = array();
-					$permissions[$column] = explode(",", $channel[$column]);
+					$permissions[$column] = explode(",", (string) $channel[$column]);
 					unset($channel[$column]);
 				}
 
@@ -235,7 +235,7 @@ public function addPermissionPredicate(&$sql, $field = "view", $member = false, 
  * @param array $values An array of fields and their values to insert.
  * @return bool|int The new channel ID, or false if there are errors.
  */
-public function create($values)
+public function create($values): bool|int
 {
 	// Check that a channel title has been entered.
 	if (!isset($values["title"])) $values["title"] = "";
@@ -270,9 +270,8 @@ public function create($values)
  *
  * @param array $values An array of fields to update and their values.
  * @param array $wheres An array of WHERE conditions.
- * @return bool|ETSQLResult
  */
-public function update($values, $wheres = array())
+public function update($values, $wheres = array()): bool|\ETSQLResult
 {
 	if (isset($values["title"]))
 		$this->validate("title", $values["title"], array($this, "validateTitle"));
@@ -367,7 +366,7 @@ public function setStatus($channelIds, $memberIds, $data)
  * @param bool|int $moveToChannelId The ID of the channel to move conversations to, or false to delete them.
  * @return bool true on success, false on error.
  */
-public function deleteById($channelId, $moveToChannelId = false)
+public function deleteById($channelId, bool|int $moveToChannelId = false)
 {
 	$channelId = (int)$channelId;
 

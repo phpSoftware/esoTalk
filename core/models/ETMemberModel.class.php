@@ -44,7 +44,7 @@ public function __construct()
  * @param array $values An array of fields and their values to insert.
  * @return bool|int The new member ID, or false if there were errors.
  */
-public function create($values = null)
+public function create($values = null): bool|int
 {
 	// Trim the username.
 	$values["username"] = trim($values["username"]);
@@ -100,9 +100,8 @@ public function create($values = null)
  *
  * @param array $values An array of fields to update and their values.
  * @param array $wheres An array of WHERE conditions.
- * @return bool|ETSQLResult
  */
-public function update($values, $wheres = array())
+public function update($values, $wheres = array()): bool|\ETSQLResult
 {
 	if (isset($values["username"])) {
 		$values["username"] = trim($values["username"]);
@@ -166,7 +165,8 @@ public function getWithSQL($sql)
  */
 public function getById($memberId)
     {
-        return reset($this->get(['m.memberId' => $memberId]));
+        $get = $this->get(['m.memberId' => $memberId]);
+								return reset($get);
     }
 
 
@@ -199,7 +199,7 @@ public function expand(&$member)
 	// Make the groups into an array of groupId => names. (Possibly consider using ETGroupModel::getAll()
 	// instead of featching the groupNames in getWithSQL()?)
 	if (array_key_exists("groups", $member) and array_key_exists("groupNames", $member))
-		$member["groups"] = array_combine(explode(",", $member["groups"]), explode(",", $member["groupNames"]));
+		$member["groups"] = array_combine(explode(",", (string) $member["groups"]), explode(",", (string) $member["groupNames"]));
 
 	// Unserialize the member's preferences.
 	if (isset($member["preferences"]))
@@ -481,9 +481,8 @@ public function deleteById($memberId, $deletePosts = false)
  * @todo Probably move the serialize part into update().
  * @param string $type The type of last action.
  * @param array $data An array of custom data that can be used by the last action type callback function.
- * @return bool|ETSQLResult
  */
-public function updateLastAction($type, $data = array())
+public function updateLastAction($type, $data = array()): bool|\ETSQLResult
 {
 	if (!ET::$session->user) return false;
 
