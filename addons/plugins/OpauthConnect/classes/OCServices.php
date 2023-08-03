@@ -9,9 +9,9 @@
  * This file is part of OpauthСonnect plugin. Please see the included license file for usage information
  */
 
-class OCServices implements Iterator {
+class OCServices {
     
-    private $services = array();
+    private array $services = array();
     
     public function __construct() {
         $services = new SimpleXMLElement(PATH_PLUGINS."/OpauthConnect/resources/ocservices.xml", 0, true);
@@ -60,23 +60,25 @@ class OCServices implements Iterator {
         return $exists;
     }
     
-    public function current() {
+   function current() {
         return current($this->services);
     }
 
-    public function key() {
+    public  function key() {
         return key($this->services);
     }
 
-    public function next() {
-        return next($this->services);
+    public function next()
+    {
+     return next($this -> services);
     }
+
 
     public function rewind() {
         reset($this->services);
     }
 
-    public function valid() {
+    public  function valid() {
         return false !== current($this->services);
     }
     
