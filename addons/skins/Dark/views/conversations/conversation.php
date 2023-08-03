@@ -62,8 +62,7 @@ if ($conversation["firstPost"])
 	echo "<span class='action' title='Author (".$conversation["startMember"].")'><a href='".URL(memberURL($conversation["startMemberId"], $conversation["startMember"]))."'>".avatar(array(
 		"memberId" => $conversation["startMemberId"],
 		"username" => $conversation["startMember"],
-		"avatarFormat" => $conversation["startMemberAvatarFormat"],
-		"email" => $conversation["startMemberEmail"]
+		"avatarFormat" => $conversation["startMemberAvatarFormat"]
 	), "start"), " ",
 	"</a></span>";
 ?></div>
