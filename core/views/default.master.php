@@ -1,7 +1,9 @@
 <?php
 // Copyright 2011 Toby Zerner, Simon Zerner
 // This file is part of esoTalk. Please see the included license file for usage information.
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 if (!defined("IN_ESOTALK")) exit;
 
 /**
@@ -56,9 +58,13 @@ if (!defined("IN_ESOTALK")) exit;
 <link rel="stylesheet" type="text/css" href="/fancybox/fancybox.css">
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500&display=swap" rel="stylesheet">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828851643911658"
-     crossorigin="anonymous"></script>
+     crossorigin="anonymous"></script>	 
+
+<script src='https://cdn.jsdelivr.net/gh/Web-Highlights/webhighlights-link-preview/dist/main.js' type='module'>
 </head>
 <body class='<?php echo $data["bodyClass"]; ?>'>
+
+
 
 <script>
 //Infinite Scroll
