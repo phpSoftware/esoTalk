@@ -306,9 +306,6 @@ public function init()
 			$this->addToMenu("statistics", "statistic-online", $stat);
 		}
 
-		// vanGato
-		$this->addToMenu("meta", "copyright", "<a href='https://madway.net' title='2021-2022 &copy; MadWay.net'><img class='footer_logo' src='/uploads/logo.png'></a>");
-
 		// Set up some default JavaScript files and language definitions.
 		$this->addJSFile("core/js/lib/jquery.js", true);
 		$this->addJSFile("core/js/lib/jquery.migrate.js", true);
