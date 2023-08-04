@@ -25,7 +25,7 @@ class ETPlugin_AutoLink extends ETPlugin {
 	// AUTO-EMBED IMAGE FORMATS
 	//
 	var $accepted_image_formats = array(
-	  'gif', 'jpg', 'jpeg', 'tif', 'tiff', 'bmp', 'png', 'svg', 'ico' );
+	  'gif', 'jpg', 'jpeg', 'tif', 'tiff', 'bmp', 'png', 'svg', 'webp', 'ico' );
 
 
 public function handler_format_format($sender)
