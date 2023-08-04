@@ -53,7 +53,7 @@ if (ET::$session->get("highlight"))
 
 // Add or remove "firstPost" from "if ($conversation["firstPost"])" to show or not to show excerpt.
 if ($conversation["firstPost"])
-   echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->inline(true)->clip(150)->format()->get()."</div>";
+   echo "<div class='excerpt'>".ET::formatter()->init($conversation["firstPost"])->format()->inline(true)->clip(150)->get()."</div>";
 
 
 ?></div>

@@ -247,11 +247,12 @@ p, ul, pre {line-height:1.5em}
 
 /* Conversation list column layout. The conversation column is almost 100% width, then the others have
 negative margins so they overlap the padding of the <li>. */
-.conversationList .col-conversation {width:95%; display:inline-block}
+.conversationList .col-conversation {width:90%; display:inline-block; margin-left:1em;}
 .conversationList .col-star {float:left; width:1em; margin-left:-13em; padding-left:0.5em}
-.conversationList .col-channel {float:left; width:10em; margin-left:-10em; text-align:right}
-.conversationList .col-replies {float: right; margin-right: -6em; width: 4em;}
-.conversationList .col-views {float: right; margin-right: -6em; width: 4em; margin-top:1.5em}
+.conversationList .col-channel {float:left; width:12em; margin-left:-11em; text-align:right}
+.conversationList .col-replies {float:right; margin-right:-16em; width:14em}
+
+.conversationList .col-views {float:right; margin-right:-16em; width:14em; margin-top:1.5em}
 
 .conversationList .col-lastPost {float:right; width:20em; margin-right:-29em; font-size:90%; overflow:hidden; white-space:nowrap}
 .conversationList .col-replies span {font-size:100%; font-weight:300; color:#aaa;}
@@ -272,7 +273,7 @@ negative margins so they overlap the padding of the <li>. */
 /* Needs a code addition in file views/conversations/conversation.php */
 /* see file code_addition.php */
 .conversationList .col-firstPost {float: left;
-width: 5em;
+width: 13em;
 margin-left: -12em;
 font-size: 90%;
 overflow: hidden;
@@ -513,7 +514,7 @@ a.button.big {padding:10px; height:auto; line-height:1em}
 .post {margin-bottom:20px; padding-left:79px; padding-bottom:2px; position:relative}
 .post div.avatar {float:left; margin-left:-79px}
 
-.highlight .postContent {box-shadow:0 0 0 1px #0d419d}
+.highlight .postContent {box-shadow:0 0 0 2px #0d419d}
 
 .postHeader {margin-bottom:2px; padding:10px 10px 10px 15px; overflow:hidden; color:#888; background: #1b2228; border-bottom:1px solid #30363d;}
 .postHeader h3 {display:inline; margin:0}
