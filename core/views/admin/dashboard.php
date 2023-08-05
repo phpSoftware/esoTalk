@@ -53,15 +53,15 @@ $(function() {
 <div id='adminDashboard'>
 
 <div class='area' id='adminNews'>
-<h3><?php echo T("Latest News"); ?></h3>
+<h3><?php echo T("Usefull links"); ?></h3>
 
  <ul class='list'>
-<?php foreach ($data["posts"] as $post): ?>
+
 <li>
-<h4><a href='<?php echo $post["link"]; ?>' target='_blank'><?php echo $post["title"]; ?></a></h4> <small><?php echo ucfirst(relativeTime($post["ts"])); ?></small>
-<p><?php echo $post["summary"]; ?> <a href='<?php echo $post["link"]; ?>' target='_blank'><?php echo T("Read more"); ?> &raquo;</a></p>
+<p> <a href='https://github.com/madromas/esoTalk-v3' target='_blank'><?php echo T("GitHub Repository"); ?> &raquo;</a></p>
+<p> <a href='https://github.com/madromas/esoTalk-v3/discussions' target='_blank'><?php echo T("Esotalk Discussion"); ?> &raquo;</a></p>
+<p> <a href='https://github.com/madromas/esoTalk-v3/issues' target='_blank'><?php echo T("Submit Issue"); ?> &raquo;</a></p>
 </li>
-<?php endforeach; ?>
 </ul>
 
 
