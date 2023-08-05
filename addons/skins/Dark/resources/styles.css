@@ -111,6 +111,16 @@ font-weight: 900;
 background-color: darken(fadein(#1b2228, 5%), 5%);
 }
 
+/* code */
+.hljs {
+  background: #000 !important;
+  color: #bfa24c !important;
+}
+pre {
+  border: 1px solid #494949 !important;
+  border-radius: 10px;
+}
+
 /* Links */
 a { text-decoration:none;}
 a:hover {text-decoration:none; color:#58a6ff}
