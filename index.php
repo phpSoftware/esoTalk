@@ -7,8 +7,6 @@ define("IN_ESOTALK", 1);
 define("PAGE_START_TIME", microtime(true));
 define("PATH_ROOT", dirname(__FILE__));
 
-require_once(PATH_ROOT.'/antibot/code/include.php');
-
 define("PATH_CORE", PATH_ROOT."/core");
 define("PATH_CACHE", PATH_ROOT."/cache");
 define("PATH_CONFIG", PATH_ROOT."/config");
