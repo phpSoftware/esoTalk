@@ -15,14 +15,16 @@ ET::$pluginInfo["ConversationStatus"] = array(
 
 class ETPlugin_ConversationStatus extends ETPlugin {
 
-	public function setup($oldVersion = "") {
-		$structure = ET::$database->structure();
-		$structure->table("conversation")
-			->column("status", "int(11) unsigned")
-			->exec(false);
 
-		return true;
-	}
+
+public function setup($oldVersion = "")
+    {
+        $structure = ET::$database->structure();
+        $structure->table("conversation")->column("status", "int(11) unsigned")->exec(false);
+        return true;
+    }
+
+
 
 	public function init() {
 		ET::conversationModel();
@@ -47,11 +49,16 @@ class ETPlugin_ConversationStatus extends ETPlugin {
 		ET::define("label.lowpriority", "Low Priority");
 	}
 
-	public function handler_conversationController_renderBefore($sender) {
+	public function handler_renderBefore($sender) {
 		$sender->addCSSFile($this->resource("status.css"));
-		$sender->addJSFile($this->resource("status.js"));
+		
+		}
+
+public function handler_conversationController_renderBefore($sender)
+    {
+       $sender->addJSFile($this->resource("status.js"));
 		$sender->addJSLanguage("Status");
-	}
+    }
 
 	public function handler_conversationController_renderScrubberBefore($sender, $data) {
 		if(!ET::$session->user) return;
@@ -101,8 +108,10 @@ class ETPlugin_ConversationStatus extends ETPlugin {
 		}
 	}
 
-	public function conversationController_status($sender, $conversationId) {
-		if (!$sender->validateToken()) return;
+	public function action_conversationController_status($controller, $conversationId = false) {
+		
+		if (!$controller->validateToken())
+        return;
 
 		$conversation = ET::conversationModel()->getById((int)$conversationId);
 
