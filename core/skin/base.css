@@ -1,7 +1,7 @@
 /*
 esoTalk Base Styles
 This stylesheet contains all of the styles that lay out the esoTalk interfaces and make them work. This
-allows skin sty lesheets to focus mainly on styling the page wrapper (header, footer) and elements like links
+allows skin stylesheets to focus mainly on styling the page wrapper (header, footer) and elements like links
 and buttons. Then they can style anything else if need be. Easy!
 
 z-index order reference:
@@ -199,7 +199,7 @@ span.highlight {background:#fdef34; padding:1px 4px; border-radius:3px}
 /* Stars */
 .starButton {}
 .starButton:hover {text-decoration:none}
-.star {color:#fc0 !important; font-size:14px}
+.star {color:#fc0 !important; font-size:12px}
 .star.icon-star-empty {color:#ccc !important}
 .starButton:hover .star {color:#fc0 !important; text-decoration:none}
 .starButton:active .star {color:#da0 !important; text-decoration:none}
@@ -572,6 +572,8 @@ a.deleteLink:hover {color:#f00 !important; text-decoration:line-through}
 .postHeader h3, .postHeader h3 a {color:#000}
 .postHeader .info {display:inline}
 .postHeader .info > span, .postHeader .info > a {font-size:85%; margin-left:5px; color:#666}
+.postHeader .answer {display:inline}
+.postHeader .answer > span, .postHeader .answer > a {font-size:85%; margin-left:5px; color:#666}
 .postHeader .controls {float:right; margin-top:0px}
 
 .postBody {line-height:1.5em; overflow:auto; padding:0px 15px}
