@@ -50,6 +50,15 @@ here if necessary.
   margin-right:30px;
 }
 
+/* code */
+.hljs {
+  background: #000 !important;
+  color: #bfa24c !important;
+}
+pre {
+  border: 1px solid #494949 !important;
+  border-radius: 10px; 
+}
 
 /* Global */
 body {font-size:14px; font-weight:normal; margin:0; overflow-y:scroll; background:#131a20; color:#c9d1d9}
@@ -109,16 +118,6 @@ font-weight: 900;
 .scrollToTop:hover{
     text-decoration:none;
 background-color: darken(fadein(#1b2228, 5%), 5%);
-}
-
-/* code */
-.hljs {
-  background: #000 !important;
-  color: #bfa24c !important;
-}
-pre {
-  border: 1px solid #494949 !important;
-  border-radius: 10px;
 }
 
 /* Links */
@@ -420,8 +419,8 @@ pre {border:0px dashed #ccc;}
 .withArrow.popup:after {border-color:#fff}
 .popupWrapper .popup {min-width:99%}
 
-.popup.right {border-radius:2px 0 2px 2px}
-.popup.left {border-radius:0 2px 2px 2px}
+.popup.right {border-radius:10px 0 10px 10px}
+.popup.left {border-radius:0 10px 10px 10px}
 
 
 /* Popup menus */
@@ -436,7 +435,7 @@ pre {border:0px dashed #ccc;}
 
 /* Popup buttons */
 .popupButton {border:solid transparent; border-width:1px 1px 0}
-.popupWrapper.active .popupButton {border-bottom:0px solid #ccc; position:relative; z-index:301; border-radius:2px 2px 0 0 !important; background:#12151a  !important}
+.popupWrapper.active .popupButton {border-bottom:0px solid #ccc; position:relative; z-index:301; border-radius:10px 10px 0 0 !important; background:#12151a  !important}
 .popupWrapper {display:inline-block}
 
 
@@ -557,14 +556,14 @@ a.button.big {padding:10px; height:auto; line-height:1em}
 .channel.channel-1 {
 	 
   background:transparent;
-  border-color: #ed2939 !important;
-  color: #ed2939 !important;
+  border-color: #3572a5 !important;
+  color: #3572a5 !important;
 }
 
 .tabs li a.channel-1:hover {
 	background:transparent;
-    border-color: #ed2939 !important;
-    color: #ed2939 !important;
+    border-color: #3572a5 !important;
+    color: #3572a5 !important;
 }
 
 
