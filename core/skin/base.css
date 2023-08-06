@@ -250,8 +250,8 @@ span.highlight {background:#fdef34; padding:1px 4px; border-radius:3px}
 .withArrow.popup:after {border-color:#fff}
 .popupWrapper .popup {min-width:99%}
 
-.popup.right {border-radius:2px 0 2px 2px}
-.popup.left {border-radius:0 2px 2px 2px}
+.popup.right {border-radius:10px 0 10px 10px}
+.popup.left {border-radius:0 10px 10px 10px}
 
 
 /* Popup menus */
@@ -267,7 +267,7 @@ span.highlight {background:#fdef34; padding:1px 4px; border-radius:3px}
 
 /* Popup buttons */
 .popupButton {border:solid transparent; border-width:1px 1px 0}
-.popupWrapper.active .popupButton {border:1px solid #666; border-bottom-color:#fff !important; position:relative; z-index:301; border-radius:2px 2px 0 0 !important; background:#fff !important}
+.popupWrapper.active .popupButton {border:1px solid #666; border-bottom-color:#fff !important; position:relative; z-index:301; border-radius:10px 10px 0 0 !important; background:#fff !important}
 .popupWrapper {display:inline-block}
 
 
